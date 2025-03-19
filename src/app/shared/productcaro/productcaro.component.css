@@ -1,0 +1,241 @@
+.custom-container {
+    padding: 20px;
+}
+
+.product-card {
+    position: relative;
+    width: 291px;
+    gap: 16px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.product-card:hover .product-info {
+    background: var(--img-border-color);
+
+}
+
+.express-badge {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--express-delivery-color);
+    color: white;
+    padding: 4px 8px;
+    border-top-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    font-family: var(--body-font-family);
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 162%;
+    letter-spacing: 0%;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.express-badge img {
+    width: 15px;
+}
+
+.product-info {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+
+}
+
+
+.product-image {
+    padding: 20px;
+    text-align: center;
+    border: 1px solid var(--img-border-color);
+}
+
+.product-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.brand {
+    font-family: var(--body-font-family);
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 162%;
+    letter-spacing: 20%;
+    vertical-align: middle;
+    text-transform: uppercase;
+    color: var(--button-border-color);
+
+}
+
+.name {
+
+    font-family: var(--heading-font-family);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 120%;
+    letter-spacing: 0%;
+
+}
+
+.rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 5px;
+    gap: 4px;
+    font-size: 11px;
+}
+
+.rating span {
+    font-family: var(--body-font-family);
+    color: var(--black-color);
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: -2.3%;
+    vertical-align: middle;
+}
+
+.rating i {
+
+    color: var(--rating-color);
+}
+
+.price-section {
+    font-family: var(--heading-font-family);
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+}
+
+.currency {
+    margin-right: 4px;
+}
+
+.price {
+
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.tags-container {
+    display: flex;
+    gap: 2px;
+}
+
+.tags {
+    min-width: 39px;
+    height: 19px;
+    gap: 10px;
+    padding: 2px 4px;
+    border-radius: 2px;
+
+    color: var(--white-color);
+    font-family: var(--heading-font-family);
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 150%;
+    letter-spacing: -2.3%;
+    vertical-align: middle;
+    text-align: center;
+
+}
+
+.sale {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--sale-color);
+}
+
+.sale img {
+    width: 12px;
+}
+
+.discount {
+    background: var(--discount-color);
+}
+
+
+.action-buttons {
+    background: var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    border-radius: 6px;
+
+}
+
+.add-to-cart {
+    background: var(--primary-color);
+    align-items: center;
+    flex: 1;
+    display: flex;
+    gap: 8px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: start;
+    font-family: var(--heading-font-family);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    padding-left: 24px;
+    padding-right: 24px;
+
+}
+
+.wishlist {
+    width: 67px;
+    height: 37px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+::ng-deep .owl-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+::ng-deep .owl-nav button {
+    pointer-events: all;
+    width: 40px;
+    height: 40px;
+    border-radius: 50% !important;
+    background: white !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+::ng-deep .owl-nav button:hover {
+    background: var(--primary-color) !important;
+    color: white !important;
+}
+
+::ng-deep .owl-nav button i {
+    font-size: 16px;
+}
+
+.product-container {
+    position: relative;
+    padding: 0 100px;
+}
+.add-to-cart img{
+    width: 16px !important;
+}

@@ -1,0 +1,242 @@
+footer {
+    background-color: var(--primary-color);
+    border-top: 1px solid var(--white-color);
+}
+
+
+.footer-main .footer-logo img {
+    width: 200px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 24px;
+}
+
+.social-icons img {
+    width: 24px;
+    height: 24px;
+}
+
+.footer-contact img {
+    width: 42px;
+    height: 42px;
+}
+
+.footer-main-content {
+    margin-top: 40px;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+.footer-contact-info {
+    width: 262.16px;
+    max-width: 262.16px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.footer-contact span {
+    font-family: var(--footer-font-family);
+    margin-left: 12px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -2.3%;
+    vertical-align: middle;
+    color: var(--white-color);
+    text-decoration: none;
+
+}
+
+.consumer-img {
+    width: 150px;
+}
+
+.card-icons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card-icons img {
+    width: 26px !important;
+
+}
+
+.quick-links h3 {
+    font-family: var(--footer-font-family);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 162%;
+    letter-spacing: 12%;
+    vertical-align: middle;
+    text-transform: uppercase;
+    color: var(--white-color);
+}
+
+.quick-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    line-height: 180%;
+}
+
+
+.quick-links ul li a {
+    font-family: var(--footer-font-family);
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: -2.3%;
+    vertical-align: middle;
+    text-transform: capitalize;
+    color: var(--white-color);
+
+}
+
+
+.footer-bottom {
+    background-color: var(--primary-color);
+    padding: 50px 0;
+    color: var(--white-color);
+    position: relative;
+}
+
+.footer-bottom .line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: var(--footer-border-color);
+    z-index: 0;
+}
+
+.footer-text {
+    font-family: var(--footer-font-family);
+    position: relative;
+    z-index: 1;
+    background-color: var(--primary-color);
+    padding: 0 10px;
+    margin: 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+
+}
+
+.footer-text span a {
+    color: var(--white-color);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.ft-container {
+    padding: 12px;
+}
+
+.ft-container .logo img {
+    width: 150px;
+}
+
+@media (max-width: 768px) {
+    footer {
+        min-height: 500px;
+    }
+
+    .ft-container {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .md-info {
+        display: flex;
+        gap: 20px;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .md-info .consumer-img {
+        width: 45px;
+    }
+
+    .footer-contact img {
+        width: 24px;
+    }
+
+    .footer-contact span {
+        font-family: var(--footer-font-family);
+        color: var(--white-color);
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        vertical-align: middle;
+        margin-left: 8px;
+    }
+
+    .accordion-button:not(.collapsed) {
+        background: transparent !important;
+    }
+
+    .accordion-body ul {
+        list-style: none !important;
+        padding: 0 0px 0 10px !important;
+        line-height: 180% !important;
+    }
+
+    .accordion-body ul li a {
+        font-family: var(--footer-font-family);
+        color: var(--white-color);
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 150%;
+        letter-spacing: -2.3%;
+        vertical-align: middle;
+        text-transform: capitalize;
+
+    }
+
+    .card-icons {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .card-icon img {
+        width: 17px;
+    }
+
+    .md-footer {
+        border-top: 1px solid var(--white-color);
+        padding: 8px 0;
+        color: var(--border-color);
+    }
+
+    .md-footer p {
+        font-family: var(--footer-font-family);
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        vertical-align: middle;
+        margin-bottom: 8px;
+
+    }
+
+}

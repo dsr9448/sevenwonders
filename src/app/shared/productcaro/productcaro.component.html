@@ -1,0 +1,61 @@
+<div class="custom-container">
+    <div class="product-container">
+        <app-heading [title1]="title1" [title2]="title2" [buttonText]="buttonText" [href]="href"></app-heading>
+        <owl-carousel-o [options]="customOptions">
+        <ng-container *ngFor="let product of products">
+            <ng-template carouselSlide>
+            <div class="product-card">
+                <!-- Express Delivery Badge -->
+                <div class="express-badge" *ngIf="product.expressDelivery" >
+                    <img src="../../../assets/icons/delivery.svg" alt=""> <span>EXPRESS DELIVERY</span>
+                </div>
+
+                <!-- Product Image -->
+                <div class="product-image">
+                    <img [src]="product.image" [alt]="product.name">
+                </div>
+
+                <!-- Product Details -->
+                <div class="product-info">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="brand">{{product.brand}}</div>
+                        <div class="rating">
+                            <span> {{product.rating}}</span> <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+
+                    <!-- Rating -->
+                    <div class="name">{{product.name}}</div>
+
+                    <!-- Price Section -->
+                    <div class="price-section d-flex justify-content-between">
+                        <div>
+                            <span class="currency">AED</span>
+                            <span class="price">{{product.price}}</span>
+                        </div>
+                        <div class="tags-container">
+
+                            <span class="tags sale" *ngIf="product.sale">
+                                Sale <img src="../../../assets/icons/sale.svg" alt="">
+                            </span>
+                            <span class="tags discount" *ngIf="product.discount">{{product.discount}}% off</span>
+                        </div>
+
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons">
+                        <button class="add-to-cart" (click)="addToCart(product)">
+                            <img src="../../../assets/icons/cart.svg" width="16" alt=""> Add to cart
+                        </button>
+                        <button class="wishlist" (click)="toggleWishlist(product)">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            </ng-template>
+        </ng-container>
+</owl-carousel-o>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+
+.features-left{
+   width: 843px; 
+   height: 512px;
+}
+.features-left img:first-child {
+    margin-bottom: 16px;
+}
+.features-right{
+    width: 381px;
+    height: 512px;
+}

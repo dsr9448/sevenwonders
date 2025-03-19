@@ -1,0 +1,12 @@
+.brand-row{
+    display: flex;
+    flex-wrap: wrap;
+    /* gap: 16px; */
+}
+/* .brands-card{
+    gap: 16px;
+} */
+.brands-card img {
+    border-radius: 12px;
+   margin-bottom: 16px;
+}

@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --primary-color: #202020;
+    --white-color: #fff;
+    --black-color: #000;
+    --border-color: #CFCFCF;
+    --img-border-color: #F3F3F3;
+    --footer-border-color: #C0C0C0;
+    --button-border-color: #828282;
+    --express-delivery-color: #021A5E;
+    --rating-color: #F5A832;
+    --sale-color: #CF0003;
+    --best-seller-color: #FB002A;
+    --discount-color: #43AF25;
+    --heading-font-family: 'Hind';
+    --footer-font-family: 'Hind';
+    --body-font-family: 'Raleway';
+}
+
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 12px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 4px;
+    border: 3px solid transparent;
+}
+
+
+
+.pxy {
+    padding: 50px 100px 0;
+}
+
+
+.custom-container {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.md-container {
+    padding: 12px 16px;
+}
+
+.ft-container .accordion-item {
+    border: none !important;
+    border-radius: 0 !important;
+    border-bottom: 1px solid var(--white-color) !important;
+
+}
+
+.ft-container .accordion-item {
+    background: var(--primary-color) !important;
+
+}
+
+.ft-container .accordion-button {
+    border-radius: 0 !important;
+    font-family: var(--footer-font-family);
+    background: var(--primary-color) !important;
+    color: var(--white-color) !important;
+    box-shadow: none !important;
+    border: none !important;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 162%;
+    letter-spacing: 12%;
+    vertical-align: middle;
+    text-transform: uppercase;
+    padding: 10px !important;
+
+}
+
+.ft-container .accordion-body {
+    background: var(--primary-color) !important;
+    color: var(--white-color) !important;
+    padding: 0 !important;
+}
+
+.ft-container .accordion-button:not(.collapsed) {
+    background: var(--primary-color) !important;
+}
+
+.feature-container {
+    padding: 30px 100px 60px;
+    gap: 16px;
+}
+
+.selling-fast-container {
+    padding: 60px 100px;
+}
+
+.product-container {
+    padding: 30px 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+}
+
+.owl-next, .owl-prev {
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: 50% !important;
+    border-width: 1px !important;
+    border-color: var(--img-border-color) !important;
+    color: var(--black-color) !important;
+}
+
+.selling-fast {
+    background-color: var(--primary-color);
+
+}
+
+.selling-card {
+    background: var(--white-color);
+    color: var(--primary-color);
+    border-radius: 12px;
+    height: 160px;
+}
+
+.selling-card .selling-card-content {
+    padding: 8px 1px;
+    text-decoration: none;
+}
+
+.selling-card .selling-card-content h5 {
+    font-family: var(--heading-font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 162%;
+    letter-spacing: 10%;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: uppercase;
+}
+
+.selling-card .selling-card-content p {
+    font-family: var(--body-font-family);
+    font-weight: 400;
+    font-size: 13.08px;
+    line-height: 150%;
+    letter-spacing: -2.3%;
+    text-align: center;
+    text-transform: capitalize;
+
+}
+
+.deals .selling-card {
+    background: var(--primary-color);
+    color: var(--white-color);
+}
+
+.mt-24 {
+    margin-top: 24px;
+}
+
+.general-heading h5{
+    color: var(--white-color);
+    font-family: var(--body-font-family);
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 162%;
+    letter-spacing: 12%;
+    text-align: center;
+}
+
+.general-heading span {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 162%;
+    letter-spacing: 12%;
+    text-align: center;
+    text-transform: uppercase;
+
+}

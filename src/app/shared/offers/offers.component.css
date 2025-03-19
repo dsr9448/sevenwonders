@@ -1,0 +1,9 @@
+.feature-container img{
+    border-radius: 12px;
+}
+.offer-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    flex-basis: 50%;
+}

@@ -1,0 +1,124 @@
+<footer class="d-none d-md-block">
+    <div class="custom-container">
+        <div class="footer-main pxy">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="footer-logo">
+                    <img src="../../../assets/images/logo/logo.svg" alt="">
+                </div>
+                <div class="social-icons">
+                    <ng-container *ngFor="let icon of socialIcons">
+                        <a [href]="icon.link" target="_blank">
+                            <img [src]="icon.icon" width="20px" alt="">
+                        </a>
+                    </ng-container>
+                </div>
+            </div>
+            <div class="row footer-main-content">
+                <div class="col-md-3 footer-contact-info">
+                    <div class="footer-contact">
+                        <a href="tel:{{contactnumber}}" target="_blank">
+                            <img src="../../../assets/icons/PhoneCall.svg" alt="">
+                            <span>{{contactnumber}}</span>
+                        </a>
+                    </div>
+                    <div class="footer-contact">
+                        <a href="mailto:{{email}}" target="_blank">
+                            <img src="../../../assets/icons/EnvelopeSimple.svg" alt="">
+                            <span>{{email}}</span>
+                        </a>
+                    </div>
+                    <img src="../../../assets/images/consumer.png" class="consumer-img mx-auto" alt="">
+                    <div class="card-icons">
+                        <ng-container *ngFor="let icon of cardIcons">
+                            <div class="card-icon">
+
+                                <img [src]="icon.icon" alt="">
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+                <ng-container *ngFor="let link of footerQuickLinks">
+                    <div class="col-md-2 quick-links">
+                        <h3>{{link.heading}}</h3>
+                        <ul>
+                            <ng-container *ngFor="let link of link.links">
+                                <li><a [href]="link.link" target="link.target">{{link.text}}</a></li>
+                            </ng-container>
+                        </ul>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="line"></div>
+
+        <div class="footer-row">
+                <p class="footer-text ">2025 Seven Wonders. All rights reserved.</p>
+                <p class="footer-text ">Designed by <span><a href="https://wodo.digital/" target="_blank">WODO</a></span></p>
+        </div>
+    </div>
+</footer>
+<footer class="d-block d-md-none">
+    <div class="ft-container">
+        <div class="logo text-center">
+            <img src="../../../assets/images/logo/logo.svg" alt="">
+        </div>
+        <div class="md-info">
+            <img src="../../../assets/images/consumer.png" class="consumer-img mx-auto" alt="">
+            <div class="footer-contact">
+                <a href="tel:{{contactnumber}}" target="_blank">
+                    <img src="../../../assets/icons/PhoneCall.svg" alt="">
+                    <span>{{contactnumber}}</span>
+                </a>
+            </div>
+            <div class="footer-contact">
+                <a href="mailto:{{email}}" target="_blank">
+                    <img src="../../../assets/icons/EnvelopeSimple.svg" alt="">
+                    <span>{{email}}</span>
+                </a>
+            </div>
+        </div>
+        <div class="accordion" id="accordionExample">
+
+            <ng-container *ngFor="let link of footerQuickLinks  let i = index">
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" [id]="'heading' + i">
+                        <button class="accordion-button" type="button" [attr.data-bs-toggle]="'collapse'"
+                            [attr.data-bs-target]="'#collapse' + i" [attr.aria-expanded]="true"
+                            [attr.aria-controls]="'collapse' + i">
+                            {{link.heading}}
+                        </button>
+                    </h2>
+                    <div [id]="'collapse' + i" class="accordion-collapse collapse"
+                        [attr.aria-labelledby]="'heading' + i" [attr.data-bs-parent]="'#accordionExample'">
+                        <div class="accordion-body">
+                            <ul>
+                                <ng-container *ngFor="let link of link.links">
+                                    <li><a [href]="link.link" target="link.target">{{link.text}}</a></li>
+                                </ng-container>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+
+
+
+        </div>
+        <div class="card-icons">
+            <ng-container *ngFor="let icon of cardIcons">
+                <div class="card-icon">
+
+                    <img [src]="icon.icon" alt="">
+                </div>
+            </ng-container>
+        </div>
+       <div class="md-footer text-center">
+        <p class="footer-text ">2025 Seven Wonders. All rights reserved.</p>
+        <p class="footer-text fw-bold text-light">Designed by <span><a href="https://wodo.digital/" target="_blank">WODO</a></span></p>
+       </div>  
+    </div>
+</footer>

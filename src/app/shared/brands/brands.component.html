@@ -1,0 +1,16 @@
+<div class="selling-fast">
+    <div class="custom-container selling-fast-container">
+        <div class="general-heading">
+            <h5>Shop by <span>Brand</span></h5>
+        </div>
+     <div class="brand-row mt-24">
+        <ng-container *ngFor="let item of brandsData">
+            <div class="col-md-2 brands-card">
+                <a href="{{item.link}}">
+                    <img [src]="item.image" alt="" class="img-fluid">
+                </a>
+            </div>
+        </ng-container>
+     </div>
+    </div>
+  </div>

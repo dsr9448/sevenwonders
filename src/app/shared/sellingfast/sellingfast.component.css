@@ -1,0 +1,43 @@
+
+.selling-fast-banner {
+    font-family: var(--body-font-family);
+    color: var(--white-color); 
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 162%;
+    letter-spacing:8px ;
+    text-align: center;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 17px;
+    width: fit-content;
+    margin: 0 auto 40px;
+    position: relative;
+  }
+  
+  .selling-fast-banner strong {
+    font-weight: 700; /* Bold FAST */
+  }
+  
+  /* Adding the before and after icons */
+  .selling-fast-banner::before,
+  .selling-fast-banner::after {
+    content: "";
+    background: url('../../../assets/icons/fast.svg') no-repeat center;
+    background-size: contain;
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    margin: 0 10px;
+  }
+  
+  .selling-fast-banner::before {
+    margin-right: 10px;
+  }
+  
+  .selling-fast-banner::after {
+    margin-left: 10px;
+  }
+  

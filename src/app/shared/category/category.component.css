@@ -1,0 +1,53 @@
+.feature-card{
+    width: 110px;
+    padding: 12px 10px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 1px solid var(--white-color);
+}
+.feature-card:hover{
+    border: 1px solid var(--img-border-color);
+}
+.feature-card img {
+    width: 76px;
+    margin-bottom: 12px;
+}
+
+.feature-card-content h5 {
+    font-family: var(--body-font-family);
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 162%;
+    letter-spacing: 2%;
+    text-align: center;
+    color: var(--black-color);
+
+}
+::ng-deep .owl-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+::ng-deep .owl-nav button {
+    pointer-events: all;
+    width: 40px;
+    height: 40px;
+    border-radius: 50% !important;
+    background: white !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+::ng-deep .owl-nav button:hover {
+    background: var(--primary-color) !important;
+    color: white !important;
+}
+
+::ng-deep .owl-nav button i {
+    font-size: 16px;
+}

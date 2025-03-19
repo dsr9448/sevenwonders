@@ -5,9 +5,9 @@
     </div>
     <i class="bi bi-heart-fill text-danger"></i>
     <div class="heading-button">
-        <a href="{{href}}">
+        <a href="{{href}}" *ngIf="buttonText!=''">
             <button >
-                {{buttonText}} <i class="fa-solid fa-chevron-right"></i>
+                {{buttonText}} <i class="fa-solid fa-chevron-right "></i> <img src="../../../assets/icons/button.svg" class="d-inline-block d-md-none" alt="">
             </button>
         </a>
     </div>

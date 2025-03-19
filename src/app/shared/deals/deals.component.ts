@@ -38,7 +38,12 @@ export class DealsComponent {
       image:"../../../assets/images/fastselling/5.png",
       sale:"30% off",
       title:"On all products"
-    } 
+    },
+    {
+      image:"../../../assets/images/fastselling/1.png",
+      sale:"30% off",
+      title:"On all products"
+    }
   ];
   ngOnInit(): void {
   }

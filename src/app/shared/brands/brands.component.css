@@ -1,12 +1,32 @@
-.brand-row{
+.brand-row {
     display: flex;
     flex-wrap: wrap;
     /* gap: 16px; */
 }
+
 /* .brands-card{
     gap: 16px;
 } */
 .brands-card img {
     border-radius: 12px;
-   margin-bottom: 16px;
+    margin-bottom: 16px;
+}
+
+@media (max-width: 768px) {
+    .brands-card img {
+        border-radius: 4px;
+        margin-bottom: 8px;
+        width: 54px !important;
+    }
+    .general-heading h5 {
+        font-size: 16px;
+        margin-bottom: 0px !important;
+    }
+    .general-heading h5 span {
+        font-size: 16px;
+        margin-bottom: 0px !important;
+    }
+    .mt-24{
+        margin-top: 12px;
+    }
 }

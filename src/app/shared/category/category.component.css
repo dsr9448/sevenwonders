@@ -1,4 +1,4 @@
-.feature-card{
+.feature-card {
     width: 110px;
     padding: 12px 10px;
     cursor: pointer;
@@ -6,9 +6,11 @@
     transition: all 0.3s ease;
     border: 1px solid var(--white-color);
 }
-.feature-card:hover{
-    border: 1px solid var(--img-border-color);
+
+.feature-card:hover {
+    border: 1px solid var(--button-border-color);
 }
+
 .feature-card img {
     width: 76px;
     margin-bottom: 12px;
@@ -24,6 +26,7 @@
     color: var(--black-color);
 
 }
+
 ::ng-deep .owl-nav {
     position: absolute;
     top: 50%;
@@ -40,7 +43,7 @@
     height: 40px;
     border-radius: 50% !important;
     background: white !important;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 ::ng-deep .owl-nav button:hover {
@@ -50,4 +53,26 @@
 
 ::ng-deep .owl-nav button i {
     font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .feature-card{
+        border: none;
+        width: 64px;
+        text-align: center;
+        padding: 8px 4px;
+    }
+    .feature-card:hover{
+        border: none;
+    }
+    .feature-card img {
+        width: 50px;
+        margin-bottom: 4px;
+    }
+
+    .feature-card-content h5 {
+        font-size: 8px;
+        text-align: center;
+
+    }
 }

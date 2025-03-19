@@ -1,0 +1,115 @@
+ .shopcat-card {
+     gap: 10px;
+     border-radius: 16px;
+     background: var(--img-border-color);
+     padding: 12px;
+     border: 1px solid var(--button-border-color);
+     width: 401px;
+     height: 434px;
+ }
+
+ .shopcat-card h5 {
+     font-family: var(--body-font-family);
+     font-weight: 700;
+     font-size: 16px;
+     line-height: 162%;
+     letter-spacing: 12%;
+     text-align: center;
+     color: var(--black-color);
+     text-transform: uppercase;
+     margin: 0px;
+ }
+
+ .shop-flex {
+     display: flex;
+     gap: 10px;
+ }
+
+ .mt-10 {
+     margin-top: 10px;
+ }
+
+ .shop-card {
+     width: 188px;
+     height: 182px;
+     border-radius: 8px;
+     padding: 8px;
+     background: var(--white-color);
+
+ }
+
+ .shop-card img {
+     width: 164px;
+ }
+
+ .shop-card-content {
+     margin-top: 8px;
+ }
+
+ .shop-card-content h5 {
+     font-family: var(--body-font-family);
+     font-weight: 500;
+     font-size: 12px;
+     line-height: 162%;
+     letter-spacing: 4px;
+     text-align: center;
+     text-transform: uppercase;
+
+ }
+
+ .shop-card-content p {
+     font-family: var(--body-font-family);
+     font-weight: 400;
+     font-size: 12px;
+     line-height: 150%;
+     letter-spacing: -2.3%;
+     text-align: center;
+     text-transform: capitalize;
+     color: var(--black-color);
+ }
+
+ .shop-btn {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     background: var(--primary-color);
+     width: 26px;
+     height: 26px;
+     padding-top: 5px;
+     padding-right: 10px;
+     padding-bottom: 5px;
+     padding-left: 10px;
+     gap: 10px;
+     border-radius: 5px;
+
+ }
+
+ @media (max-width: 768px) {
+     .shop-container{
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+     }
+     .shopcat-card {
+         width: 358px;
+         height: 376px;
+     }
+     .shop-card{
+        width: 162px;
+        height: 153px;
+     }
+     .shop-card img{
+        width: 138px;
+     }
+     .shop-card-content{
+        margin-top: 4px;
+     }
+     .shop-card-content h5{
+        font-size: 10px;
+     }
+     .shop-card-content p{
+        font-size: 10px;
+     }
+
+
+ }

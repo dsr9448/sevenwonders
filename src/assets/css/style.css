@@ -12,8 +12,10 @@
     --express-delivery-color: #021A5E;
     --rating-color: #F5A832;
     --sale-color: #CF0003;
+    --product-name-color: #6B6B6B;
     --best-seller-color: #FB002A;
     --discount-color: #43AF25;
+    --overlay-color: #d9d9d929;
     --heading-font-family: 'Hind';
     --footer-font-family: 'Hind';
     --body-font-family: 'Raleway';
@@ -163,7 +165,7 @@ body::-webkit-scrollbar-thumb {
     margin-top: 24px;
 }
 
-.general-heading h5{
+.general-heading h5 {
     color: var(--white-color);
     font-family: var(--body-font-family);
     font-weight: 500;
@@ -181,4 +183,113 @@ body::-webkit-scrollbar-thumb {
     text-align: center;
     text-transform: uppercase;
 
+}
+
+.home-caro .owl-theme .owl-dots .owl-dot span {
+    width: 25px;
+    height: 4px;
+    margin: 0 !important;
+    background: var(--primary-color);
+    display: block;
+    -webkit-backface-visibility: visible;
+    backface-visibility: visible;
+    transition: opacity .2s ease;
+    border-radius: 0px;
+}
+
+
+
+@media (max-width: 768px) {
+
+    /* general */
+    .feature-container {
+        padding: 12px 16px;
+    }
+
+    .owl-next, .owl-prev {
+        width: 12px !important;
+        height: 12px !important;
+        text-align: center !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        font-size: 7px !important;
+    }
+
+    /* header */
+    .home-caro .owl-carousel .owl-item img {
+        height: 154px !important;
+        object-fit: fill !important;
+    }
+
+    .home-caro .owl-theme .owl-dots, .owl-theme .owl-nav {
+        margin-top: 0px !important;
+    }
+
+    /* footer */
+    footer .accordion-button:not(.collapsed)::after {
+        background-image: none !important;
+        content: "\f078";
+        font-family: "Font Awesome 5 Free";
+        font-size: 14px;
+        font-weight: 600;
+        float: right;
+    }
+
+    footer .accordion-button::after {
+        background-image: none !important;
+        content: "\f078";
+        font-family: "Font Awesome 5 Free";
+        font-size: 14px;
+        font-weight: 600;
+        float: right;
+
+    }
+
+    .selling-fast-container {
+        padding: 24px 16px;
+    }
+
+    .product-container .owl-nav {
+        display: none !important;
+    }
+
+    .selling-fast, .deals-card {
+        gap: 10px;
+        overflow-x: scroll !important;
+        overflow-y: hidden !important;
+        white-space: nowrap !important;
+        flex-wrap: nowrap;
+        scrollbar-width: none !important;
+
+    }
+
+    .selling-card {
+        width: 107px;
+        height: 100px;
+    }
+
+    .selling-card img {
+        width: 107px;
+    }
+
+    .selling-card .selling-card-content h5 {
+        font-size: 9px;
+    }
+
+    .selling-card .selling-card-content p {
+        font-size: 8px;
+    }
+
+    .shop-main-container {
+        padding: 24px 16px;
+    }
+
+    nav {
+        z-index: 2 !important;
+    }
+
+    .mobile-mega-menu {
+        z-index: 999 !important;
+    }
 }

@@ -10,9 +10,10 @@ import { SellingfastComponent } from "../../shared/sellingfast/sellingfast.compo
 import { DealsComponent } from "../../shared/deals/deals.component";  
 import { BrandsComponent } from '../../shared/brands/brands.component';
 import { CategoryComponent } from "../../shared/category/category.component";
+import { ShopbycatComponent } from "../../shared/shopbycat/shopbycat.component";
 @Component({
   selector: 'app-home',
-  imports: [CarouselComponent, BannersComponent, FeaturebannerComponent, NewproductsComponent, TopbannerComponent, OffersComponent, ProductcaroComponent, SellingfastComponent, DealsComponent, BrandsComponent, CategoryComponent],
+  imports: [CarouselComponent, BannersComponent, FeaturebannerComponent, NewproductsComponent, TopbannerComponent, OffersComponent, ProductcaroComponent, SellingfastComponent, DealsComponent, BrandsComponent, CategoryComponent, ShopbycatComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

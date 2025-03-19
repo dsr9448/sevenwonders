@@ -1,7 +1,9 @@
-<owl-carousel-o [options]="carouselOptions">
-  <ng-container *ngFor="let item of items">
-    <ng-template carouselSlide>
-      <img [src]="item.image" alt="Carousel Image" class="w-25">
-    </ng-template>
-  </ng-container>
-</owl-carousel-o>
+<div class="home-caro">
+  <owl-carousel-o [options]="carouselOptions">
+    <ng-container *ngFor="let item of items">
+      <ng-template carouselSlide>
+        <img [src]="item.image" alt="Carousel Image">
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>
+</div>

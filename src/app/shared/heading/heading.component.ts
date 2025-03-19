@@ -1,8 +1,8 @@
 import { Component ,Input , OnInit} from '@angular/core';
-
+import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-heading',
-  imports: [],
+  imports: [NgIf],
   templateUrl: './heading.component.html',
   styleUrl: './heading.component.css'
 })

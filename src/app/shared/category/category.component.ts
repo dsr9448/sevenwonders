@@ -23,16 +23,16 @@ export class CategoryComponent {
     navText: ['<i class="fa-solid fa-chevron-left"></i>', '<i class="fa-solid fa-chevron-right"></i>'],
     responsive: {
       0: {
-        items: 1
+        items: 5.5,
       },
       400: {
-        items: 2
+        items: 5.5
       },
       740: {
-        items: 14
+        items: 10
       },
       940: {
-        items: 14
+        items: 10
       }
     },
 
@@ -41,32 +41,57 @@ export class CategoryComponent {
     {
       image: '../../../assets/images/category/5.jpg',
       title: 'Kitchen',
-      link: 'https://www.google.com'
+      link: ''
     },
     {
       image: '../../../assets/images/category/6.jpg',
       title: 'Digital Camera',
-      link: 'https://www.google.com'
+      link: ''
     },
     {
       image: '../../../assets/images/category/1.jpg',
       title: 'Television',
-      link: 'https://www.google.com'
+      link: ''
     },
     {
       image: '../../../assets/images/category/2.jpg',
       title: 'Smartphones',
-      link: 'https://www.google.com'
+      link: ''
     },
     {
       image: '../../../assets/images/category/4.jpg',
       title: 'Gaming',
-      link: 'https://www.google.com'
+      link: ''
     },
     {
       image: '../../../assets/images/category/3.jpg',
       title: 'Personal Care',
-      link: 'https://www.google.com'
+      link: ''
+    },
+    {
+      image: '../../../assets/images/category/6.jpg',
+      title: 'Digital Camera',
+      link: ''
+    },
+    {
+      image: '../../../assets/images/category/1.jpg',
+      title: 'Television',
+      link: ''
+    },
+    {
+      image: '../../../assets/images/category/2.jpg',
+      title: 'Smartphones',
+      link: ''
+    },
+    {
+      image: '../../../assets/images/category/4.jpg',
+      title: 'Gaming',
+      link: ''
+    },
+    {
+      image: '../../../assets/images/category/3.jpg',
+      title: 'Personal Care',
+      link: ''
     },
     
     

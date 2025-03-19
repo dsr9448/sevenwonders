@@ -1,23 +1,176 @@
-<!-- <header>
+<header class="d-none d-md-block">
     <div class="custom-container">
         <div class="header-main">
-            <img src="../../../assets/images/logo/logo.svg" width="200px" alt="">
+            <a routerLink="/">
+                <img src="../../../assets/images/logo/logo.svg" width="200px" alt="">
+            </a>
             <div class="header-right">
                 <input type="text" placeholder="Search by brand or product...">
                 <button class="btn border-0 rounded-0">Search</button>
             </div>
-            <div class="social-icons d-flex justify-content-between align-items-center ">
+            <div class="social-icons d-flex justify-content-between align-items-center">
                 <a class="text-decoration-none" href="tel:{{contactNumber}}">
-                    <img src="../../../assets/icons/telephone.svg" alt=""> {{contactNumber}}
+                    <img src="../../../assets/icons/telephone.svg" class="me-2" alt=""> {{contactNumber}}
                 </a>
-                <a class="text-decoration-none" href="">
-                    <img src="../../../assets/icons/user.svg" alt="">
-                </a>
+
                 <a href="">
                     <img src="../../../assets/icons/heart.svg" alt="">
                 </a>
+
+                <a href="">
+                    <img src="../../../assets/icons/hcart.svg" alt="">
+                </a>
+                <a href="">
+                    <img src="../../../assets/icons/Group.svg" alt="">
+                </a>
             </div>
         </div>
+    </div>
+    <div class="header-bottom">
+        <div class="custom-container header-bottom-container">
+            <div class="all-cat">
+                <button (click)="toggleMegaMenu()">
+                    All Categories <img src="../../../assets/icons/catbtn.svg" alt="">
+                </button>
+                <div class="overlay" [class.show]="isMegaMenuOpen"></div>
+                <div class="mega-menu" [class.show]="isMegaMenuOpen">
+                    <div class="mega-menu-container">
+                        <div class="main-categories">
+                            <ul>
+                                <li *ngFor="let category of mainCategories"
+                                    [class.active]="selectedMainCategory === category.id"
+                                    (click)="selectMainCategory(category.id)">
+                                    <a href="javascript:void(0)">
+                                        {{category.name}}
+
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="sub-categories" *ngIf="selectedMainCategory">
+                            <div class="sub-category-content"
+                                *ngFor="let section of categoryContent[selectedMainCategory]?.sections">
+                                <h3>{{section.title}}</h3>
+                                <ul>
+                                    <li *ngFor="let item of section.items">
+                                        <a href="{{item.link}}"
+                                            class="d-flex justify-content-between align-items-center">
+
+                                            {{item.name}}
+                                            <i class="fa-solid fa-angle-right"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="brand-row mt-24">
+                        <ng-container *ngFor="let item of brandsData">
+                            <div class="brands-card">
+                                <a href="{{item.link}}">
+                                    <img [src]="item.image" alt="" class="img-fluid">
+                                </a>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-bar">
+                <ul>
+                    <li *ngFor="let item of navItems">
+                        <a href="{{item.link}}">{{item.name}}</a>
+                    </li>
+                    <a class="sale-button">{{salebutton}} <img src="../../../assets/icons/saleb.svg" alt=""></a>
+                </ul>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center store-flex">
+                <a href="" class="locate-store">
+                    <img src="../../../assets/icons/locate.svg" alt=""> Locate Our Store
+                </a>
+
+                <div ngbDropdown class="cart_dropdown">
+                    <button type="button" class="text-uppercase btn headercart_btn country-btn pe-0"
+                        id="countrydropdown" ngbDropdownToggle>
+                        <img src="../../../assets/images/curreny.png" alt="">{{selectedcurrency}} <img
+                            src="../../../assets/icons/dropicon.svg" alt="">
+                    </button>
+                    <div ngbDropdownMenu aria-labelledby="countrydropdown">
+                        <ul class="country-menu">
+                            <ng-container *ngFor="let items of currencies">
+                                <li><a href="#" class="text-uppercase"> <img src="" width="18px" height="18px"
+                                            alt="">{{items.currency_symbol}}</a></li>
+                            </ng-container>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<header class="d-block d-md-none">
+    <div class="custom-container">
+        <div class="header-main">
+            <a routerLink="/">
+                <img src="../../../assets/images/logo/logo.svg" width="127px" alt="">
+            </a>
+            <div class="social-icons d-flex justify-content-between align-items-center">
+                <a class="text-decoration-none telephone" href="tel:{{contactNumber}}">
+                    <img src="../../../assets/icons/telephone.svg" width="16px" height="16px" alt=""> {{contactNumber}}
+                </a>
+            </div>
+        </div>
+        <div class="header-bottom">
+            <div class="header-bottom-container">
+                <button class="btn border-0 rounded-0" (click)="toggleMobileMenu()">
+                    <img src="../../../assets/icons/menu.svg" alt="">
+                </button>
+                <div class="header-right">
+                    <input type="text" placeholder=" Search by brand or product...">
+                    <button class="search-btn"><img src="../../../assets/icons/search.svg" alt=""></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Update the mobile menu section -->
+    <div class="mobile-menu-overlay" [class.show]="isMobileMenuOpen" (click)="toggleMobileMenu()"></div>
+    <div class="mobile-mega-menu" [class.show]="isMobileMenuOpen">
+        <div class="mobile-mega-menu-header">
+            <h2>Top <span>Categories</span></h2>
+            <button class="close-menu" (click)="toggleMobileMenu()">
+                <img src="../../../assets/icons/close.svg" alt="Close">
+            </button>
+        </div>
+        <div class="mobile-mega-menu-container">
+            <div class="mobile-menu-row">
+                <ng-container *ngFor="let item of mobilemenu">
+
+                    <a href="" class="text-decoration-none">
+                        <div class="mob-card">
+                            <img [src]="item.image" alt="">
+                            <p>{{item.name}}</p>
+                        </div>
+                    </a>
+                </ng-container>
+
+            </div>
+        </div>
+        <ul class="mobile-nav-items">
+
+            <ng-container *ngFor="let item of navItems">
+                <li>
+                    <a href="{{item.link}}">{{item.name}} <i class="fa-solid fa-angle-right"></i></a>
+                </li>
+            </ng-container>
+        </ul>
+        <a class="sale-button">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>{{salebutton}} <img src="../../../assets/icons/sale.svg" alt=""></div>
+            </div>
+            <i class="fa-solid fa-angle-right"></i>
+        </a>
 
     </div>
-</header> -->
+</header>

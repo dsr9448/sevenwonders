@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-featurebanner',
-  imports: [],
+  imports: [NgFor],
   templateUrl: './featurebanner.component.html',
   styleUrl: './featurebanner.component.css'
 })

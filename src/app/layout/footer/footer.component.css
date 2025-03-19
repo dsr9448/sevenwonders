@@ -239,4 +239,41 @@ footer a {
 
     }
 
+    nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: var(--primary-color);
+        padding: 16px;
+        /* z-index: 999; */
+        height: 64px;
+
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: center;
+
+        align-items: center;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        gap: 40px;
+    }
+    nav ul li a img{
+        padding-bottom: 4px;
+    }
+    .headercart_btn {
+        width: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+    .active img{
+        border-bottom: 2px solid var(--sale-color);
+    }
+
 }

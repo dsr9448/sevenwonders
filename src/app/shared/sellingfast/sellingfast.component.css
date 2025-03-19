@@ -41,3 +41,16 @@
     margin-left: 10px;
   }
   
+  @media (max-width: 768px) {
+    .selling-fast-banner{
+      margin: 0 auto 20px;
+    }
+    .selling-fast-banner {
+        font-size: 16px;
+    }
+    .selling-fast-banner::before,
+    .selling-fast-banner::after{
+      width: 20px;
+      height: 20px;
+    }
+  }

@@ -1,6 +1,8 @@
-<div class="custom-container">
-    <div class="product-container">
-        <app-heading [title1]="title1" [title2]="title2" [buttonText]="buttonText" [href]="href"></app-heading>
+<div class="custom-container newhead">
+    <app-heading [title1]="title1" [title2]="title2" [buttonText]="buttonText" [href]="href"></app-heading>
+</div>
+<div class="custom-container pe-md-0">
+    <div class="product-container pe-md-0">
         <owl-carousel-o [options]="customOptions">
         <ng-container *ngFor="let product of products">
             <ng-template carouselSlide>
@@ -29,7 +31,7 @@
 
                     <!-- Price Section -->
                     <div class="price-section d-flex justify-content-between">
-                        <div>
+                        <div class="price-section-left">
                             <span class="currency">AED</span>
                             <span class="price">{{product.price}}</span>
                         </div>
@@ -47,6 +49,14 @@
                     <div class="action-buttons">
                         <button class="add-to-cart" (click)="addToCart(product)">
                             <img src="../../../assets/icons/cart.svg" width="16" alt=""> Add to cart
+                        </button>
+                        <button class="wishlist" (click)="toggleWishlist(product)">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="md-action-button d-flex d-md-none">
+                        <button class="add-to-cart" (click)="addToCart(product)">
+                            <img src="../../../assets/icons/cart.svg" width="20" class="mx-auto" alt=""> 
                         </button>
                         <button class="wishlist" (click)="toggleWishlist(product)">
                             <i class="far fa-heart"></i>

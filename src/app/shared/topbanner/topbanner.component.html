@@ -1,9 +1,19 @@
-<div class="custom-container">
-    <div class="d-flex feature-container">
+<div class="custom-container ">
+    <div class="d-none d-md-flex feature-container ">
         <ng-container *ngFor="let banner of topbanner">
-           <a href="{{banner.link}}">
-            <img src="{{banner.image}}" class="img-fluid" alt="">
-           </a>
+            <a href="{{banner.link}}">
+                <img src="{{banner.image}}" class="img-fluid" alt="">
+            </a>
         </ng-container>
     </div>
+</div>
+<div class="d-grid d-md-none top-banner-container">
+    <ng-container *ngFor="let banner of topbanner">
+        <div class="">
+            <a href="{{banner.link}}">
+                <img src="{{banner.image}}" class="img-fluid" alt="">
+            </a>
+        </div>
+    </ng-container>
+    
 </div>

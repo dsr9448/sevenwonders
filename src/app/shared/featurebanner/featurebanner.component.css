@@ -10,3 +10,9 @@
     width: 381px;
     height: 512px;
 }
+ @media screen and (max-width: 768px) {
+    .feature-banner-container{
+        flex-direction: column;
+        gap: 16px;
+    }
+ }

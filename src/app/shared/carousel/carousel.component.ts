@@ -14,6 +14,9 @@ export class CarouselComponent {
     margin: 10,
     nav: false,
     dots: true,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true,
     responsive: {
       0: { items: 1 },
       // 600: { items: 2 },
@@ -23,6 +26,7 @@ export class CarouselComponent {
 
   items = [
 
-    { image: 'https://seven.wodo.digital/upload/slider/slider610-1.jpg' }
+    { image: 'https://seven.wodo.digital/upload/slider/slider610-1.jpg' },
+    { image: 'https://seven.wodo.digital/upload/slider/slider610-1.jpg' },
   ];
 }

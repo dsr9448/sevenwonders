@@ -30,7 +30,7 @@ interface CategoryMap {
 })
 export class HeaderComponent {
   contactNumber: string = "+971 562162730";
-  salebutton: string = "Sale";
+  salebutton: string = "Deals";
   storelink: string = "Store Locator";
   currencies: any;
   selectedcurrency: any = "AED";

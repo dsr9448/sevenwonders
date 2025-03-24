@@ -1,5 +1,5 @@
 <div class="custom-container ">
-    <div class="d-flex feature-container newproduct-container">
+    <div class="d-flex feature-container newproduct-container {{isproduct ? 'pt-0' : ''}}">
         <ng-container *ngFor="let product of newproduct">
             <div >
                 <img src="{{product}}" class="img-fluid" alt="">

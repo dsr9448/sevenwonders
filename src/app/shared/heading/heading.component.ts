@@ -11,6 +11,8 @@ export class HeadingComponent implements OnInit {
   @Input() title2: string = '';
   @Input() href: string = '';
   @Input() buttonText: string = '';
+  @Input() iscenter: boolean =false;
+  @Input() isWhite: boolean =false;
 
 
 
@@ -19,5 +21,7 @@ export class HeadingComponent implements OnInit {
     this.title2 = this.title2;
     this.href = this.href;
     this.buttonText = this.buttonText;
+    this.iscenter = this.iscenter;
+    this.isWhite = this.isWhite;
   }
   }

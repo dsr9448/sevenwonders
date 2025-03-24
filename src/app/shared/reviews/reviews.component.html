@@ -1,0 +1,56 @@
+<div class="reviews-container custom-container ">
+    <div class="reviews-header">
+       <div>
+        <div class="google-reviews-brand">
+            <img src="../../../assets/icons/google.png" alt="Google" class="google-logo">
+            <span class="reviews-text">Reviews</span>
+        </div>
+        
+        <div class="rating-summary">
+            <div class="average-rating">{{averageRating}}</div>
+            <div class="stars-container">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <span class="total-reviews">({{totalReviews}})</span>
+        </div>
+       </div>
+
+        <a href="#" target="_blank" class="review-button d-none d-md-block">Review us on Google <img src="../../../assets/icons/button.svg" alt="" ></a>
+    </div>
+
+    <div class="reviews-grid">
+        <owl-carousel-o [options]="customOptions1">
+            <ng-container *ngFor="let review of reviews">
+                <ng-template carouselSlide>
+                    <div class="review-card ms-0">
+                        <div class="reviewer-info">
+                            <div class="avatar">
+                                <img [src]="review.image || 'assets/default-avatar.png'" [alt]="review.name">
+                            </div>
+                            <div class="reviewer-name">{{review.name}}</div>
+                        </div>
+                        <div class="review-stars">
+                            <i class="fas fa-star" *ngFor="let star of [1,2,3,4,5]" 
+                               [class.active]="star <= review.rating"></i>
+                        </div>
+                        <p class="review-text" [class.expanded]="review.isExpanded">
+                            {{review.comment}}
+                        </p>
+                        <button *ngIf="review.comment.length > 50" 
+                                class="read-more-btn" 
+                                (click)="toggleReadMore(review)">
+                            {{review.isExpanded ? 'Read Less' : 'Read More'}}
+                        </button>
+                    </div>
+                </ng-template>
+            </ng-container>
+        </owl-carousel-o>
+    </div>
+    <a href="#" target="_blank" class="review-button  text-center d-block d-md-none text-center my-3">Review us on Google <img src="../../../assets/icons/button.svg" alt="" ></a>
+   
+
+</div>

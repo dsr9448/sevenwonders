@@ -1,0 +1,299 @@
+
+
+.testimonial-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.section-header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.testimonial-card {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    margin: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+}
+
+.rating {
+    margin-bottom: 20px;
+}
+
+.rating i {
+    color: #ddd;
+    margin-right: 5px;
+}
+
+.rating i.active {
+    color: #ffd700;
+}
+
+.testimonial-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
+    min-height: 80px;
+}
+
+.reviewer-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.reviewer-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.reviewer-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.reviewer-details h4 {
+    margin: 0;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.reviewer-details p {
+    margin: 5px 0 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+
+
+
+.reviews-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.google-reviews-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.google-logo {
+    height: 24px;
+}
+
+.reviews-text {
+    font-size: 20px;
+    color: var(--button-border-color);
+}
+
+.rating-summary {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.average-rating {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.stars-container {
+    color: var(--rating-color);
+    font-size: 16px;
+}
+
+.total-reviews {
+    color: #5f6368;
+
+}
+
+.review-button {
+    background: var(--primary-color);
+    color: white;
+    padding: 8px 24px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.review-button:hover {
+    background:var(--primary-color);
+}
+
+.review-card {
+    background: white;
+    border-radius: 8px;
+    padding: 18px;
+    margin: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    height: 100%;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.reviewer-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1rem;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.reviewer-name {
+    font-weight: 500;
+    color: #202124;
+}
+
+.review-stars {
+    color: #fbbc05;
+    margin-bottom: 1rem;
+}
+
+.review-text {
+    color: #5f6368;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.review-text.expanded {
+    -webkit-line-clamp: unset;
+}
+
+.read-more-btn {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    padding: 0;
+    cursor: pointer;
+    font-weight: 500;
+    position: absolute;
+    bottom: 1rem;
+    left: 1.5rem;
+    font-size: 14px;
+}
+
+
+
+/* Ensure proper spacing for the content */
+.review-card {
+    padding-bottom: 3rem; /* Make space for the Read More button */
+}
+
+/* Add fade effect at the bottom of truncated text */
+.review-text:not(.expanded)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(transparent, white);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.review-text:not(.expanded):hover::after {
+    opacity: 1;
+}
+
+/* Carousel Navigation Customization */
+::ng-deep .owl-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+}
+
+::ng-deep .owl-prev,
+::ng-deep .owl-next {
+    position: absolute;
+    background: white !important;
+    width: 40px;
+    height: 40px;
+    border-radius: 50% !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+::ng-deep .owl-prev {
+    left: -20px;
+}
+
+::ng-deep .owl-next {
+    right: -20px;
+}
+
+::ng-deep .owl-prev i,
+::ng-deep .owl-next i {
+    color: #5f6368;
+}
+
+@media (max-width: 768px) {
+    .reviews-header {
+        text-align: center;
+    }
+    .google-logo{
+        width: 52px !important;
+        height: auto !important;
+    }
+    .rating-summary{
+        font-size: 12px !important;
+    }
+    .average-rating{
+        font-size: 12px !important;
+    }
+    .stars-container{
+        font-size: 12px !important;
+    }
+    .reviews-header{
+        margin-bottom: 14px;
+    }
+}

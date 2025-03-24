@@ -1,5 +1,5 @@
 <div class="custom-container">
-    <div class="offer-container feature-container" >
+    <div class="offer-container feature-container   {{offers.length<4 ? 'flex-md-nowrap' : ''}}" >
         <ng-container *ngFor="let offer of offers">
             <div class="">
 

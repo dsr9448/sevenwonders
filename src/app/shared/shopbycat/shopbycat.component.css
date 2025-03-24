@@ -21,7 +21,8 @@
  }
 
  .shop-flex {
-     display: flex;
+     display: grid;
+     grid-template-columns: repeat(2, 1fr);
      gap: 10px;
  }
 
@@ -30,7 +31,7 @@
  }
 
  .shop-card {
-     width: 188px;
+     width: 182px;
      height: 182px;
      border-radius: 8px;
      padding: 8px;

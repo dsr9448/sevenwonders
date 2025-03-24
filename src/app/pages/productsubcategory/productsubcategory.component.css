@@ -1,0 +1,5 @@
+@media screen and (max-width: 768px) {
+    .newhead {
+        padding: 24px 16px 0 !important;
+    }
+}

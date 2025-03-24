@@ -1,17 +1,17 @@
 <div class="custom-container newhead">
     <app-heading [title1]="title1" [title2]="title2" [buttonText]="buttonText" [href]="href"></app-heading>
 </div>
-<div class="custom-container pe-md-0">
-    <div class="product-container pe-md-0">
+<div class="custom-container pe-0">
+    <div class="product-container pe-0">
         <owl-carousel-o [options]="customOptions">
         <ng-container *ngFor="let product of products">
             <ng-template carouselSlide>
             <div class="product-card">
                 <!-- Express Delivery Badge -->
-                <div class="express-badge" *ngIf="product.expressDelivery" >
-                    <img src="../../../assets/icons/delivery.svg" alt=""> <span>EXPRESS DELIVERY</span>
+                <div class="express-badge {{product.expressDelivery ? 'express' : 'standard'}}" *ngIf="product.expressDelivery ||  product.standardDelivery" >
+                    <img src="../../../assets/icons/{{product.expressDelivery ? 'delivery.svg' : 'bestseller.svg'}} " alt=""> <span class="text-uppercase">{{product.expressDelivery ?'EXPRESS':'Standard'}}  DELIVERY</span>
                 </div>
-
+                    
                 <!-- Product Image -->
                 <div class="product-image">
                     <img [src]="product.image" [alt]="product.name">
@@ -55,7 +55,7 @@
                         </button>
                     </div>
                     <div class="md-action-button d-flex d-md-none">
-                        <button class="add-to-cart" (click)="addToCart(product)">
+                        <button class="add-to-cart " (click)="addToCart(product)">
                             <img src="../../../assets/icons/cart.svg" width="20" class="mx-auto" alt=""> 
                         </button>
                         <button class="wishlist" (click)="toggleWishlist(product)">

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { CarouselModule } from 'ngx-owl-carousel-o';
@@ -8,7 +8,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
   templateUrl: './category.component.html',
   styleUrl: './category.component.css'
 })
-export class CategoryComponent {
+export class CategoryComponent implements OnInit {
+  @Input() categoryData: any;
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,
@@ -37,66 +38,9 @@ export class CategoryComponent {
     },
 
   };
-  categoryData = [
-    {
-      image: '../../../assets/images/category/5.jpg',
-      title: 'Kitchen',
-      link: ''
-    },
-    {
-      image: '../../../assets/images/category/6.jpg',
-      title: 'Digital Camera',
-      link: ''
-    },
-    {
-      image: '../../../assets/images/category/1.jpg',
-      title: 'Television',
-      link: ''
-    },
-    {
-      image: '../../../assets/images/category/2.jpg',
-      title: 'Smartphones',
-      link: ''
-    },
-    {
-      image: '../../../assets/images/category/4.jpg',
-      title: 'Gaming',
-      link: ''
-    },
-    {
-      image: '../../../assets/images/category/3.jpg',
-      title: 'Personal Care',
-      link: ''
-    },
-    {
-      image: '../../../assets/images/category/6.jpg',
-      title: 'Digital Camera',
-      link: ''
-    },
-    {
-      image: '../../../assets/images/category/1.jpg',
-      title: 'Television',
-      link: ''
-    },
-    {
-      image: '../../../assets/images/category/2.jpg',
-      title: 'Smartphones',
-      link: ''
-    },
-    {
-      image: '../../../assets/images/category/4.jpg',
-      title: 'Gaming',
-      link: ''
-    },
-    {
-      image: '../../../assets/images/category/3.jpg',
-      title: 'Personal Care',
-      link: ''
-    },
-    
-    
-    
-    
-  ]
+  ngOnInit(): void {
+    this.categoryData = this.categoryData;
+  }
+
 
 }

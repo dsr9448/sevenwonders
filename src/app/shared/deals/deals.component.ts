@@ -8,43 +8,21 @@ import { HeadingComponent } from "../heading/heading.component";
   templateUrl: './deals.component.html',
   styleUrl: './deals.component.css'
 })
-export class DealsComponent {
+export class DealsComponent implements OnInit {
   @Input() title1: string = '';
   @Input() title2: string = '';
   @Input() href: string = '';
   @Input() buttonText: string = '';
-  dealsData: any[] = [
-    {
-      image:"../../../assets/images/fastselling/1.png",
-      sale:"30% off",
-      title:"On all products"
-    },
-    {
-      image:"../../../assets/images/fastselling/2.png",
-      sale:"30% off",
-      title:"On all products"
-    },
-    {
-      image:"../../../assets/images/fastselling/3.png",
-      sale:"30% off",
-      title:"On all products"
-    },
-    {
-      image:"../../../assets/images/fastselling/4.png",
-      sale:"30% off",
-      title:"On all products"
-    } ,
-    {
-      image:"../../../assets/images/fastselling/5.png",
-      sale:"30% off",
-      title:"On all products"
-    },
-    {
-      image:"../../../assets/images/fastselling/1.png",
-      sale:"30% off",
-      title:"On all products"
-    }
-  ];
+  @Input() isHome: boolean = false;
+  @Input() isWhite: boolean = false;
+  @Input() dealsData: any[] = [];
   ngOnInit(): void {
+    this.title1 = this.title1;
+    this.title2 = this.title2;
+    this.href = this.href;
+    this.buttonText = this.buttonText;
+    this.dealsData = this.dealsData;
+    this.isHome = this.isHome;
+    this.isWhite = this.isWhite;
   }
 }

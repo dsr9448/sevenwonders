@@ -56,6 +56,7 @@ export class FooterComponent {
         { link: '#', text: 'Privacy Policy', target: false },
         { link: '#', text: 'Bulk Inquiry', target: false },
         { link: '#', text: 'Delivery & Installation', target: false },
+        { link: '#', text: 'Corporate Inquiries', target: false },
       ]
     },
     {

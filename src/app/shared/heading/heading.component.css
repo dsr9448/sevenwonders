@@ -47,6 +47,17 @@
     color: var(--white-color);
 }
 
+.heading-button .white-btn{
+    border: 1px solid var(--white-color) !important;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.heading-button .white-btn:hover{
+    background-color: var(--white-color);
+    color: var(--primary-color);
+}
+
 @media screen and (max-width: 768px) {
     .heading-title h1 {
         font-size: 16px;

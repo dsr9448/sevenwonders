@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NgFor } from '@angular/common';
 
 @Component({
@@ -7,11 +7,10 @@ import { NgFor } from '@angular/common';
   templateUrl: './offers.component.html',
   styleUrl: './offers.component.css'
 })
-export class OffersComponent {
-  offers: { image: string, link: string }[] = [
-    { image: "../../../assets/images/Offers/1.jpg", link: "https://example.com/page1" },
-    { image: "../../../assets/images/Offers/2.jpg", link: "https://example.com/page2" },
-    { image: "../../../assets/images/Offers/3.jpg", link: "https://example.com/page3" },
-    { image: "../../../assets/images/Offers/4.jpg", link: "https://example.com/page4" },
-  ]
+export class OffersComponent implements OnInit {
+  @Input() offers: any[]= [];
+  
+  ngOnInit(): void {
+    this.offers = this.offers;
+  }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component ,Input,OnInit} from '@angular/core';
 import { NgFor } from '@angular/common';
 
 @Component({
@@ -7,9 +7,12 @@ import { NgFor } from '@angular/common';
   templateUrl: './newproducts.component.html',
   styleUrl: './newproducts.component.css'
 })
-export class NewproductsComponent {
-  newproduct : string[] = [
-    "../../../assets/images/newproduct/1.png",
-    "../../../assets/images/newproduct/2.png",
-  ]
+export class NewproductsComponent implements OnInit {
+  @Input() newproduct : string[] = [];
+  @Input() isproduct : boolean = false;
+  ngOnInit(): void {
+    this.newproduct = this.newproduct;
+    this.isproduct = this.isproduct;
+  }
+  
 }

@@ -1,16 +1,17 @@
-<app-carousel></app-carousel>
-<app-category></app-category>
-<app-topbanner></app-topbanner>
-<app-productcaro [title1]="'Best'" [title2]="'Sellers'" [buttonText]="'View All'" [href]="'#'"></app-productcaro>
-<app-offers></app-offers>
-<app-productcaro [title1]="'Recommended '" [title2]="'For You'"  [href]="'#'"></app-productcaro>
+<app-carousel [items]="items"></app-carousel>
+<app-category [categoryData]="categoryData"></app-category>
+<app-topbanner [topbanner]="topbanner"></app-topbanner>
+<app-productcaro [title1]="'Best'" [title2]="'Sellers'" [buttonText]="'View All'" [href]="'#'" [products]="products"></app-productcaro>
+<app-offers [offers]="offers"></app-offers>
+<app-productcaro [title1]="'Recommended '" [title2]="'For You'"  [href]="'#'" [products]="products"></app-productcaro>
 <app-brands></app-brands>
-<app-deals [title1]="'BEST DEALS '" [title2]="'Appliances'" [buttonText]="'View All'" [href]="'#'"></app-deals>
-<app-banners></app-banners>
-<app-shopbycat></app-shopbycat>
+<app-deals [title1]="'BEST DEALS '" [title2]="'Appliances'" [buttonText]="'View All'" [href]="'#'"  [dealsData]="dealsData" [isHome]= true></app-deals>
+<app-banners [banner]="banner"></app-banners>
+<app-shopbycat [shopbycatData]="shopbycatData"></app-shopbycat>
 <app-sellingfast></app-sellingfast>
-<app-productcaro [title1]="'Gaming & '" [title2]="'Accessories'" [buttonText]="'View All'" [href]="'#'"></app-productcaro>
-<app-newproducts></app-newproducts>
-<app-productcaro [title1]="'Mobile & '" [title2]="'Tablet'" [buttonText]="'View All'" [href]="'#'"></app-productcaro>
+<app-productcaro [title1]="'Gaming & '" [title2]="'Accessories'" [buttonText]="'View All'" [href]="'#'" [products]="products"></app-productcaro>
+<app-newproducts [newproduct]="newproduct"></app-newproducts>
+<app-productcaro [title1]="'Mobile & '" [title2]="'Tablet'" [buttonText]="'View All'" [href]="'#'" [products]="products"></app-productcaro>
 <app-featurebanner></app-featurebanner>
-<app-banners class="d-none d-md-block"></app-banners>
+<app-reviews></app-reviews>
+<app-banners class="d-none d-md-block" [banner]="banner"></app-banners>

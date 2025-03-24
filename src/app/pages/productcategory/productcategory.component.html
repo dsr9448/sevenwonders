@@ -1,0 +1,20 @@
+<app-breadcrumb category="Category" bannerimage="banner.png" [items]="items"></app-breadcrumb>
+<app-category [categoryData]="categoryData"></app-category>
+<app-topbanner [topbanner]="topbanner" [title1]="'NEWLY'" [title2]="'LAUNCHED'" [iscenter]=true></app-topbanner>
+<app-banners [banner]="banner"></app-banners>
+<div class="isProduct">
+    <app-productcaro [title1]="'Best'" [title2]="'Sellers'" [buttonText]="'View All'" [href]="'#'"
+        [products]="products"></app-productcaro>
+</div>
+<app-trendingdeals [dealsdata]="dealsdata"></app-trendingdeals>
+<app-banners [banner]="banner"></app-banners>
+<app-shopbycat [shopbycatData]="shopbycatData"></app-shopbycat>
+<app-newproducts [newproduct]="newproduct" [isproduct]="true"></app-newproducts>
+<app-deals [title1]="'GET DISCOUNT '" [title2]="' on Combo Offers'" [buttonText]="'View All'" [href]="'#'"
+    [dealsData]="dealsData" [isWhite]=true></app-deals>
+<app-offers [offers]="offers"></app-offers>
+<app-heading [title1]="'FILTER'" [title2]="'Your Preferences'" [iscenter]=true  class="d-none d-md-block"></app-heading>
+<div class="custom-container newhead d-block d-md-none">
+    <app-heading [title1]="'FILTER'" [title2]="'Your Preferences'" [buttonText]="'Filter'" [href]="'#'" class="d-block  d-md-none"></app-heading>
+</div>
+<app-productlisting [productdata]="productdata"></app-productlisting>

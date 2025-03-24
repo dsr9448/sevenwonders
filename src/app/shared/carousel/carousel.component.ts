@@ -1,4 +1,4 @@
-import { Component,NgModule } from '@angular/core';
+import { Component,OnInit,Input } from '@angular/core';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { NgFor } from '@angular/common';
 
@@ -8,7 +8,8 @@ import { NgFor } from '@angular/common';
   templateUrl: './carousel.component.html',
   styleUrl: './carousel.component.css'
 })
-export class CarouselComponent {
+export class CarouselComponent  implements OnInit{
+  @Input() items: any[] = [];
   carouselOptions = {
     loop: true,
     margin: 10,
@@ -24,9 +25,8 @@ export class CarouselComponent {
     }
   };
 
-  items = [
 
-    { image: 'https://seven.wodo.digital/upload/slider/slider610-1.jpg' },
-    { image: 'https://seven.wodo.digital/upload/slider/slider610-1.jpg' },
-  ];
+  ngOnInit(): void {
+    this.items = this.items;
+  }
 }

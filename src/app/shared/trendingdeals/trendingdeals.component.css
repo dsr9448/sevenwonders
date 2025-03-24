@@ -1,0 +1,152 @@
+.trending-deals-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.trending-deals {
+    display: flex;
+}
+
+.trending-deals-container img {
+    border-radius: 12px;
+}
+
+
+
+
+.shopcat-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 16px;
+    background: var(--img-border-color);
+    padding: 12px;
+    border: 1px solid var(--button-border-color);
+    width: 605px;
+    /* height: 242px; */
+}
+
+.shopcat-card h5 {
+    font-family: var(--body-font-family);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 162%;
+    letter-spacing: 12%;
+    text-align: center;
+    color: var(--black-color);
+    text-transform: capitalize;
+    margin: 0px;
+}
+
+.shop-flex {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.shop-card {
+    width: 182px;
+    height: 182px;
+    border-radius: 8px;
+    padding: 12px;
+    background: var(--white-color);
+
+}
+
+.shop-card a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.shop-card img {
+    width: 164px;
+}
+
+
+
+.shop-card-content h5 {
+    font-family: var(--body-font-family);
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 162%;
+    letter-spacing: 4px;
+    text-align: center;
+    text-transform: uppercase;
+
+}
+
+.shopcat-card p {
+    font-family: var(--body-font-family);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    letter-spacing: -2.3%;
+    text-align: center;
+    text-transform: capitalize;
+    color: var(--black-color);
+}
+
+.shop-btn {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-size: 16px;
+
+}
+
+@media (max-width: 768px) {
+    .shop-container {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+    }
+
+
+
+    .shop-card {
+        width: 162px;
+        height: 153px;
+    }
+
+    .shop-card img {
+        width: 138px;
+    }
+
+    .shopcat-card {
+        width: 100%;
+    }
+
+    .shopcat-card h5 {
+        font-size: 10px;
+    }
+
+    .shopcat-card p {
+        font-size: 10px;
+    }
+
+    .trending-deals-container {
+        flex-direction: column;
+    }
+
+    .shop-flex {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .shop-flex::-webkit-scrollbar {
+        display: none;
+    }
+    .title{
+        font-size: 14px !important;
+    }
+
+}

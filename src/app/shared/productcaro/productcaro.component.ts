@@ -15,6 +15,7 @@ export class ProductcaroComponent implements OnInit {
   @Input() title2: string = '';
   @Input() href: string = '';
   @Input() buttonText: string = '';
+
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,
@@ -24,19 +25,20 @@ export class ProductcaroComponent implements OnInit {
     autoplayTimeout: 5000,
     autoplayHoverPause: true,
     nav: true,
-    dots: false,
+    dots: true,
+
     navSpeed: 700,
     margin: 20,
     navText: ['<i class="fa-solid fa-chevron-left"></i>', '<i class="fa-solid fa-chevron-right"></i>'],
     responsive: {
       0: {
-        items: 2
+        items: 2.2
       },
       400: {
-        items: 2
+        items: 2.2
       },
       740: {
-        items: 2
+        items: 2.1
       },
       940: {
         items: 4.5
@@ -44,80 +46,18 @@ export class ProductcaroComponent implements OnInit {
     },
   };
 
-  products = [
-    {
-      brand: 'CANON',
-      name: 'Hitachi Drum Vacuum Cleaner 2100 Watts, 18 Liters Tank Dust Capacity With 7.8M Extra',
-      image: '../../../assets/images/products/product1.png',
-      price: 560,
-      rating: 3.5,
-      sale: true,
-      expressDelivery: true,
-      discount: 20
-    },
-    {
-      brand: 'CANON',
-      name: 'Hitachi Drum Vacuum Cleaner 2100 Watts, 18 Liters Tank Dust Capacity With 7.8M Extra',
-      image: '../../../assets/images/products/product1.png',
-      price: 560,
-      rating: 3.5,
-      sale: false,
-      expressDelivery: true,
-      discount: 20
-    },
-    {
-      brand: 'CANON',
-      name: 'Hitachi Drum Vacuum Cleaner 2100 Watts, 18 Liters Tank Dust Capacity With 7.8M Extra',
-      image: '../../../assets/images/products/product1.png',
-      price: 560,
-      rating: 3.5,
-      sale: true,
-      expressDelivery: true,
-      discount: 20
-    },
-    {
-      brand: 'CANON',
-      name: 'Hitachi Drum Vacuum Cleaner 2100 Watts, 18 Liters Tank Dust Capacity With 7.8M Extra',
-      image: '../../../assets/images/products/product1.png',
-      price: 560,
-      rating: 3.5,
-      sale: false,
-      expressDelivery: true,
-      discount: 20
-    },
-    {
-      brand: 'CANON',
-      name: 'Hitachi Drum Vacuum Cleaner 2100 Watts, 18 Liters Tank Dust Capacity With 7.8M Extra',
-      image: '../../../assets/images/products/product1.png',
-      price: 560,
-      rating: 3.5,
-      sale: true,
-      expressDelivery: true,
-      discount: 20
-    },
-    {
-      brand: 'CANON',
-      name: 'Hitachi Drum Vacuum Cleaner 2100 Watts, 18 Liters Tank Dust Capacity With 7.8M Extra',
-      image: '../../../assets/images/products/product1.png',
-      price: 560,
-      rating: 3.5,
-      sale: false,
-      expressDelivery: true,
-      discount: 20
-    },
-    // Add more products here
-  ];
+  @Input() products: any[] = [];
 
 
 
 
   constructor() { }
   ngOnInit(): void {
-    // this.title1 = this.title1;
-    // this.title2 = this.title2;
-    // this.href = this.href;
-    // this.buttonText = this.buttonText;
-    // this.products = this.products;
+    this.title1 = this.title1;
+    this.title2 = this.title2;
+    this.href = this.href;
+    this.buttonText = this.buttonText;
+    this.products = this.products;
   }
 
 

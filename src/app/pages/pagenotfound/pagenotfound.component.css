@@ -1,0 +1,42 @@
+.not-found-page {
+    text-align: center;
+    padding: 50px;
+}
+
+.error-code {
+    font-size: 120px;
+    font-family: var(--heading-font-family);
+    font-weight: bold;
+    color: var(--best-seller-color);
+    margin-bottom: 0px !important;
+}
+
+.error-message {
+    font-family: var(--body-font-family);
+    font-size: 20px;
+    margin: 20px 0;
+    color: #333;
+    font-weight: 600;
+}
+
+.btn-back {
+    font-family: var(--body-font-family);
+    background: var(--primary-color);
+    color: var(--white-color);
+    font-weight: 600;
+}
+
+@media screen and (max-width: 768px) {
+    .not-found-page {
+        padding: 20px;
+    }
+
+    .error-code {
+        font-size: 80px;
+    }
+
+    .error-message {
+        font-size: 12px;
+    }
+
+}

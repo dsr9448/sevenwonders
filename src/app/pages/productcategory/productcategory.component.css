@@ -1,0 +1,11 @@
+@media (max-width: 768px) {
+    .isProduct {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+    .newhead {
+        padding: 24px 16px 0 !important;
+    }
+   
+}
+

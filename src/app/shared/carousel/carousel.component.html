@@ -2,7 +2,10 @@
   <owl-carousel-o [options]="carouselOptions">
     <ng-container *ngFor="let item of items">
       <ng-template carouselSlide>
-        <img [src]="item.image" alt="Carousel Image">
+        <a [href]="item.link">
+          <img [src]="imagePath + item.image" alt="Carousel Image" class="d-none d-md-block">
+          <img [src]="imagePath + item.mob_image" alt="Carousel Image" class="d-block d-md-none">
+        </a>
       </ng-template>
     </ng-container>
   </owl-carousel-o>

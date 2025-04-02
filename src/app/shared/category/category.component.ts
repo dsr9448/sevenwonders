@@ -1,15 +1,19 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { IMAGE_PATHS } from '../constants/api-paths';
+import { Pipe, PipeTransform } from '@angular/core';
 @Component({
   selector: 'app-category',
-  imports: [NgFor, CarouselModule],
+  imports: [CommonModule, CarouselModule],
   templateUrl: './category.component.html',
   styleUrl: './category.component.css'
 })
 export class CategoryComponent implements OnInit {
   @Input() categoryData: any;
+  @Input() isProductDetails: boolean = false;
+  imagePath = IMAGE_PATHS;
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,
@@ -21,7 +25,7 @@ export class CategoryComponent implements OnInit {
     nav: true,
     dots: false,
     navSpeed: 700,
-    navText: ['<i class="fa-solid fa-chevron-left"></i>', '<i class="fa-solid fa-chevron-right"></i>'],
+    navText: ['<i class="fa-solid fa-angle-left"></i>', '<i class="fa-solid fa-angle-right"></i>'],
     responsive: {
       0: {
         items: 5.5,
@@ -40,6 +44,7 @@ export class CategoryComponent implements OnInit {
   };
   ngOnInit(): void {
     this.categoryData = this.categoryData;
+    this.isProductDetails = this.isProductDetails;
   }
 
 

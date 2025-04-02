@@ -1,36 +1,27 @@
 <div class="custom-container">
-    <div class="shop-main-container">
+    <div class="shop-main-container d-flex justify-content-between shop-containe">
         <ng-container *ngFor="let category of shopbycatData">
-        <div class="d-flex justify-content-between shop-container">
-            <ng-container *ngFor="let product of category.products">
-
+            <div class="r">
                 <div class="shopcat-card">
-                    <div class="d-flex justify-content-between align-items-center ">
-                      <h5>{{product.title}}</h5>
-                      <a [routerLink]="product.link" class="shop-btn"><img src="../../../assets/icons/button.svg" alt=""></a>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5>{{category.products.title}}</h5>
+                        <a [routerLink]="category.products.link" class="shop-btn"><img src="../../../assets/icons/button.svg" alt=""></a>
                     </div>
-                   <div class="shop-flex mt-10">
-                       <ng-container *ngFor="let product of product.products">
-
-                           <div class="shop-card">
-                               <a href="" class="text-decoration-none">
-                                   <img src="{{product.image}}" alt="">
-                                   <div class="shop-card-content">
-                                       <h5 class="text-uppercase">{{product.title}}</h5>
-                                       <p class="text-capitalize">{{product.description}}</p>
+                    <div class="shop-flex mt-10">
+                        <ng-container *ngFor="let product of category.products.products">
+                            <div class="shop-card">
+                                <a [routerLink]="['/product', product.slug]" class="text-decoration-none">
+                                    <img [src]="imagePath + product.image" [alt]="product.name" class="mx-auto">
+                                    <div class="shop-card-content">
+                                        <h5 class="text-uppercase">{{product.brand}}</h5>
+                                        <p class="text-capitalize">{{product.name | slice: 0:40}}</p>
                                     </div>
                                 </a>
                             </div>
-                            
                         </ng-container>
-                 
-                   </div>
-             
-    
-                   </div>
-            </ng-container>
-                   
-                   
+                    </div>
                 </div>
-            </ng-container>
+            </div>
+        </ng-container>
     </div>
+</div>

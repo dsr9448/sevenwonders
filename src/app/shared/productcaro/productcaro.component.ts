@@ -1,12 +1,15 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { NgFor, NgIf } from '@angular/common';
+import { Component, Input, OnInit,ViewChild } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { NgFor, NgIf, CommonModule } from '@angular/common';
 import { HeadingComponent } from "../heading/heading.component";
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-
+import { CartService } from '../../services/cartservices';
+import { IMAGE_PATHS } from '../constants/api-paths';
 @Component({
   selector: 'app-productcaro',
-  imports: [HeadingComponent, CarouselModule, NgFor, NgIf],
+  standalone: true,
+  imports: [HeadingComponent, CarouselModule, NgFor, NgIf, CommonModule,RouterModule],
   templateUrl: './productcaro.component.html',
   styleUrl: './productcaro.component.css'
 })
@@ -15,6 +18,7 @@ export class ProductcaroComponent implements OnInit {
   @Input() title2: string = '';
   @Input() href: string = '';
   @Input() buttonText: string = '';
+  imagePath = IMAGE_PATHS;
 
   customOptions: OwlOptions = {
     loop: true,
@@ -48,10 +52,12 @@ export class ProductcaroComponent implements OnInit {
 
   @Input() products: any[] = [];
 
+  constructor(private cartService: CartService) { }
 
+  openCart() {
+    this.cartService.showCart();
+  }
 
-
-  constructor() { }
   ngOnInit(): void {
     this.title1 = this.title1;
     this.title2 = this.title2;
@@ -60,9 +66,9 @@ export class ProductcaroComponent implements OnInit {
     this.products = this.products;
   }
 
-
-  addToCart(product: any): void {
-    // Implement add to cart functionality
+  addToCart(product: any) {
+    this.cartService.addToCart(product);
+    this.cartService.showCart();
   }
 
   toggleWishlist(product: any): void {

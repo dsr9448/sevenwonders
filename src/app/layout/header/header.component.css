@@ -51,6 +51,11 @@ header {
 
 .header-right button {
     height: 39px;
+    width: 107px;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 0;
     background-color: var(--white-color);
     color: var(--header-color);
@@ -58,7 +63,6 @@ header {
     font-weight: 400;
     font-size: 14px;
     line-height: 150%;
-    letter-spacing: -2.3%;
     text-align: center;
 
 }

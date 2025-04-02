@@ -123,7 +123,7 @@ footer a {
     background-color: var(--primary-color);
     padding: 0 10px;
     margin: 0;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 16px;
     line-height: 26px;
     letter-spacing: 0%;
@@ -141,7 +141,7 @@ footer a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 1rem;
+    padding: 0 90px;
 }
 
 .ft-container {
@@ -262,9 +262,11 @@ footer a {
 
         gap: 40px;
     }
-    nav ul li a img{
+
+    nav ul li a img {
         padding-bottom: 4px;
     }
+
     .headercart_btn {
         width: 52px;
         display: flex;
@@ -272,7 +274,8 @@ footer a {
         justify-content: center;
         gap: 10px;
     }
-    .active img{
+
+    .active img {
         border-bottom: 2px solid var(--sale-color);
     }
 

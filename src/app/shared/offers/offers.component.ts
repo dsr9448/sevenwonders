@@ -1,9 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NgFor } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-offers',
-  imports: [NgFor],
+  imports: [NgFor,RouterModule],
   templateUrl: './offers.component.html',
   styleUrl: './offers.component.css'
 })

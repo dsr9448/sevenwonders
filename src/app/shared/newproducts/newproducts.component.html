@@ -2,7 +2,12 @@
     <div class="d-flex feature-container newproduct-container {{isproduct ? 'pt-0' : ''}}">
         <ng-container *ngFor="let product of newproduct">
             <div >
-                <img src="{{product}}" class="img-fluid" alt="">
+                <a [routerLink]="product.link">
+                    <img [src]="imagePath + product.image" class="img-fluid" alt="">
+       
+                </a>
+
+          
             </div>
         </ng-container>
     </div>

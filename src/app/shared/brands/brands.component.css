@@ -1,5 +1,6 @@
 .brand-row {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
     flex-wrap: wrap;
     /* gap: 16px; */
 }
@@ -7,26 +8,53 @@
 /* .brands-card{
     gap: 16px;
 } */
-.brands-card img {
+.brands-card {
+    width: 194px;
+    height: 104px;
+    background: var(--white-color);
     border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 16px;
 }
 
+.brands-card img {
+
+    width: 90px;
+    border-radius: 12px;
+
+}
+
 @media (max-width: 768px) {
+    .brands-card {
+        width: 67px;
+        height: 36px;
+        border-radius: 4px;
+
+    }
+
     .brands-card img {
         border-radius: 4px;
-        margin-bottom: 8px;
-        width: 54px !important;
+   
+        width: 60px !important;
     }
+
+    .brand-row {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
     .general-heading h5 {
         font-size: 16px;
         margin-bottom: 0px !important;
     }
+
     .general-heading h5 span {
         font-size: 16px;
         margin-bottom: 0px !important;
     }
-    .mt-24{
+
+    .mt-24 {
         margin-top: 12px;
     }
 }

@@ -1,16 +1,17 @@
+
 <div class="custom-container">
     <div class="feature-container d-none d-md-flex justify-content-between">
         <div class="features-left">
-            <img src="{{bannner[0]}}" class="img-fluid" alt="">
-            <img src="{{bannner[1]}}" class="img-fluid" alt="">
+            <img [src]="imagePath + banner[0].image" class="img-fluid" alt="">
+            <img [src]="imagePath + banner[1].image" class="img-fluid" alt="">
         </div>
         <div class="features-right">
-            <img src="{{bannner[2]}}" class="img-fluid" alt="">
+            <img [src]="imagePath + banner[2].image" class="img-fluid" alt="">
         </div>
     </div>
     <div class="selling-fast-container feature-banner-container d-flex d-md-none">
-        <ng-container *ngFor="let item of bannner">
-            <img [src]="item" class="img-fluid" alt="">
+        <ng-container *ngFor="let item of banner">
+            <img [src]="imagePath + item.image" class="img-fluid" alt="">
         </ng-container>
     </div>
 </div>

@@ -1,18 +1,17 @@
 <div class="selling-fast">
   <div class="custom-container selling-fast-container">
     <div class="selling-fast-banner">
-      <span>SELLING <strong>FAST</strong></span>
+      <span>{{sellingFastData.title.split(' ')[0]}} <strong class="">{{sellingFastData.title.split(' ')[1]}}</strong></span>
     </div>
 
-
     <div class="d-flex deals-card justify-content-between align-items-center ">
-      <ng-container *ngFor="let item of sellingFastData">
-        <a href="" class="text-decoration-none">
+      <ng-container *ngFor="let item of sellingFastData.cards">
+        <a [routerLink]="item.link" class="text-decoration-none">
           <div class="selling-card">
-            <img [src]="item.image" alt="">
+            <img [src]="imagePath + item.image" alt="">
             <div class="selling-card-content text-center">
-              <h5 class="mb-0">{{item.sale}}</h5>
-              <p>{{item.title}}</p>
+              <h5 class="mb-0">{{item.title}}</h5>
+              <p>{{item.content}}</p>
             </div>
           </div>
         </a>

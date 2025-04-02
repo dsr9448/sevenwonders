@@ -1,17 +1,26 @@
-<app-carousel [items]="items"></app-carousel>
+<app-carousel [items]="homepageData.sliderData"></app-carousel>
 <app-category [categoryData]="categoryData"></app-category>
-<app-topbanner [topbanner]="topbanner"></app-topbanner>
-<app-productcaro [title1]="'Best'" [title2]="'Sellers'" [buttonText]="'View All'" [href]="'#'" [products]="products"></app-productcaro>
-<app-offers [offers]="offers"></app-offers>
-<app-productcaro [title1]="'Recommended '" [title2]="'For You'"  [href]="'#'" [products]="products"></app-productcaro>
-<app-brands></app-brands>
-<app-deals [title1]="'BEST DEALS '" [title2]="'Appliances'" [buttonText]="'View All'" [href]="'#'"  [dealsData]="dealsData" [isHome]= true></app-deals>
-<app-banners [banner]="banner"></app-banners>
-<app-shopbycat [shopbycatData]="shopbycatData"></app-shopbycat>
-<app-sellingfast></app-sellingfast>
-<app-productcaro [title1]="'Gaming & '" [title2]="'Accessories'" [buttonText]="'View All'" [href]="'#'" [products]="products"></app-productcaro>
-<app-newproducts [newproduct]="newproduct"></app-newproducts>
-<app-productcaro [title1]="'Mobile & '" [title2]="'Tablet'" [buttonText]="'View All'" [href]="'#'" [products]="products"></app-productcaro>
-<app-featurebanner></app-featurebanner>
+<app-topbanner [topbanner]="homepageData.topbanner"></app-topbanner>
+<app-productcaro [title1]="homepageData.productcardata['title']" [title2]="'Sellers'" [buttonText]="'View All'"
+    [href]="''" [products]="homepageData.productcardata['products']"></app-productcaro>
+<app-offers [offers]="homepageData.four_banners"></app-offers>
+<app-productcaro [title1]="homepageData.recommended_products['title']"
+    [title2]="homepageData.recommended_products['title']" [href]="'#'"
+    [products]="homepageData.recommended_products['products']"></app-productcaro>
+<app-brands [brandsData]="homepageData.shop_by_brand['brands']"></app-brands>
+<app-deals [title1]="homepageData.dealsData['title']" [title2]="'Appliances'"
+    [buttonText]="homepageData.dealsData['button_text']" [href]="homepageData.dealsData['url']"
+    [dealsData]="homepageData.dealsData['deal_cards']" [isHome]=true></app-deals>
+<app-banners [banner]="homepageData.banner"></app-banners>
+<app-shopbycat [shopbycatData]="homepageData.shopbycatData "></app-shopbycat>
+<app-sellingfast [sellingFastData]="homepageData.sellingFastData"></app-sellingfast>
+<app-productcaro [title1]="homepageData.products_carousel_1['title']" [title2]="'Sellers'" [buttonText]="'View All'"
+    [href]="homepageData.products_carousel_1['url']"
+    [products]="homepageData.products_carousel_1['products']"></app-productcaro>
+<app-newproducts [newproduct]="homepageData.two_half_width_banners"></app-newproducts>
+<app-productcaro [title1]="homepageData.products_carousel_2['title']" [title2]="'Sellers'" [buttonText]="'View All'"
+    [href]="homepageData.products_carousel_2['url']"
+    [products]="homepageData.products_carousel_2['products']"></app-productcaro>
+<app-featurebanner [banner]="homepageData.bottom_three_banners"></app-featurebanner>
 <app-reviews></app-reviews>
-<app-banners class="d-none d-md-block" [banner]="banner"></app-banners>
+<app-banners class="d-none d-md-block" [banner]="homepageData.banner2"></app-banners>

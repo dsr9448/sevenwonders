@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { HeadingComponent } from "../heading/heading.component";
-
+import { IMAGE_PATHS } from "../constants/api-paths";
 @Component({
   selector: 'app-deals',
   imports: [HeadingComponent, NgFor],
@@ -16,6 +16,7 @@ export class DealsComponent implements OnInit {
   @Input() isHome: boolean = false;
   @Input() isWhite: boolean = false;
   @Input() dealsData: any[] = [];
+  imagePath = IMAGE_PATHS.banners;
   ngOnInit(): void {
     this.title1 = this.title1;
     this.title2 = this.title2;

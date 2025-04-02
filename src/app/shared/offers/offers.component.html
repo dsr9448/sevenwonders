@@ -3,8 +3,8 @@
         <ng-container *ngFor="let offer of offers">
             <div class="">
 
-                <a href="{{offer.link}}">
-                    <img src="{{offer.image}}" class="img-fluid " alt="">
+                <a [routerLink]="offer.link">
+                    <img src="https://seven.wodo.digital/upload/banners/{{offer.image}}" class="img-fluid " alt="">
                 </a>
             </div>
         </ng-container>

@@ -1,6 +1,7 @@
 import { Component,OnInit,Input } from '@angular/core';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { NgFor } from '@angular/common';
+import { IMAGE_PATHS } from '../../shared/constants/api-paths';
 
 @Component({
   selector: 'app-carousel',
@@ -10,6 +11,7 @@ import { NgFor } from '@angular/common';
 })
 export class CarouselComponent  implements OnInit{
   @Input() items: any[] = [];
+  imagePath = IMAGE_PATHS.slider;
   carouselOptions = {
     loop: true,
     margin: 10,

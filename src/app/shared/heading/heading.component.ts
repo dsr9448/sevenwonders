@@ -1,4 +1,4 @@
-import { Component ,Input , OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-heading',
@@ -11,12 +11,13 @@ export class HeadingComponent implements OnInit {
   @Input() title2: string = '';
   @Input() href: string = '';
   @Input() buttonText: string = '';
-  @Input() iscenter: boolean =false;
-  @Input() isWhite: boolean =false;
-
+  @Input() iscenter: boolean = false;
+  @Input() isWhite: boolean = false;
+  @Input() isproduct: boolean = false;
 
 
   ngOnInit(): void {
+    this.isproduct=this.isproduct;
     this.title1 = this.title1;
     this.title2 = this.title2;
     this.href = this.href;
@@ -24,4 +25,4 @@ export class HeadingComponent implements OnInit {
     this.iscenter = this.iscenter;
     this.isWhite = this.isWhite;
   }
-  }
+}

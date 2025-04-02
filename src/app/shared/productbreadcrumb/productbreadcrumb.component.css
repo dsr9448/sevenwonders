@@ -1,0 +1,25 @@
+.breadcrumb-content {
+    align-items: center;
+    gap: 10px;
+}
+
+.breadcrumb-content a {
+    padding: 10px;
+    gap: 10px;
+    font-family: var(--footer-font-family);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: var(--breadcrumb-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+
+
+}
+
+.active {
+    color: var(--button-border-color) !important;
+}

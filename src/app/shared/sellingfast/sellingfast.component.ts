@@ -1,45 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { Component, OnInit, Input } from '@angular/core';
+import { CommonModule  } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { IMAGE_PATHS } from '../constants/api-paths';
 @Component({
   selector: 'app-sellingfast',
-  imports: [NgFor],
+  imports: [CommonModule, RouterModule],
   templateUrl: './sellingfast.component.html',
   styleUrl: './sellingfast.component.css'
 })
 export class SellingfastComponent implements OnInit {
 
-  sellingFastData: any[] = [
-    {
-      image: "../../../assets/images/fastselling/1.png",
-      sale: "30% off",
-      title: "On all products"
-    },
-    {
-      image: "../../../assets/images/fastselling/2.png",
-      sale: "30% off",
-      title: "On all products"
-    },
-    {
-      image: "../../../assets/images/fastselling/3.png",
-      sale: "30% off",
-      title: "On all products"
-    },
-    {
-      image: "../../../assets/images/fastselling/4.png",
-      sale: "30% off",
-      title: "On all products"
-    },
-    {
-      image: "../../../assets/images/fastselling/5.png",
-      sale: "30% off",
-      title: "On all products"
-    }, {
-      image: "../../../assets/images/fastselling/1.png",
-      sale: "30% off",
-      title: "On all products"
-    }
-  ];
+@Input() sellingFastData: any;
+imagePath = IMAGE_PATHS.banners;
   ngOnInit(): void {
+    this.sellingFastData = this.sellingFastData;
   }
 
 }

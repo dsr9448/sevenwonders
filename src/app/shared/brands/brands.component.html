@@ -5,9 +5,9 @@
         </div>
      <div class="brand-row mt-24">
         <ng-container *ngFor="let item of brandsData">
-            <div class="col-2 brands-card">
-                <a href="{{item.link}}">
-                    <img [src]="item.image" alt="" class="">
+            <div class="brands-card">
+                <a href="{{item.slug}}">
+                    <img [src]=" imagePath.brand +item.image" alt="{{item.brand}} " class="img-fluid">
                 </a>
             </div>
         </ng-container>

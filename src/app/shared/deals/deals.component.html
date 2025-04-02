@@ -7,10 +7,10 @@
         <ng-container *ngFor="let item of dealsData">
           <a href="" class="text-decoration-none">
             <div class="selling-card {{isHome ? 'bg-p' : 'bg-light'}}">
-              <img [src]="item.image" alt="">
+              <img [src]="imagePath + item.image" alt="">
               <div class="selling-card-content text-center">
-                <h5 class="mb-0">{{item.sale}}</h5>
-                <p>{{item.title}}</p>
+                <h5 class="mb-0">{{item.title}}</h5>
+                <p>{{item.content}}</p>
               </div>
             </div>
           </a>

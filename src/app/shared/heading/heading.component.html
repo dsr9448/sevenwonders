@@ -1,14 +1,20 @@
 <div class="d-flex justify-content-{{iscenter ? 'center' : 'between'}} align-items-center">
     <div class="heading-title {{isWhite ? 'text-white' : ''}}">
-        <h1>{{title1}}</h1>
-        <span>{{title2}}</span>
+
+        <h1 *ngIf="!isproduct">{{title1}}</h1>
+        <span *ngIf="!isproduct">{{title2}}</span>
+        <ng-container *ngIf="isproduct">
+            <span class="mr-10">{{title1}}</span>
+            <h1 class="me-0">{{title2}}</h1>
+        </ng-container>
     </div>
-  
+
     <i class="bi bi-heart-fill text-danger"></i>
     <div class="heading-button ">
         <a href="{{href}}" *ngIf="buttonText!=''">
             <button class="{{isWhite ? 'white-btn' : ''}}">
-                {{buttonText}} <i class="fa-solid fa-chevron-right "></i> <img src="../../../assets/icons/button.svg" class="d-inline-block d-md-none" alt="">
+                {{buttonText}} <i class="fa-solid fa-chevron-right "></i> <img src="../../../assets/icons/button.svg"
+                    class="d-inline-block d-md-none" alt="">
             </button>
         </a>
     </div>

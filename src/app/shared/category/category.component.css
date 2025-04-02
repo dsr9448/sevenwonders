@@ -56,15 +56,17 @@
 }
 
 @media (max-width: 768px) {
-    .feature-card{
+    .feature-card {
         border: none;
         width: 64px;
         text-align: center;
         padding: 8px 4px;
     }
-    .feature-card:hover{
+
+    .feature-card:hover {
         border: none;
     }
+
     .feature-card img {
         width: 50px;
         margin-bottom: 4px;
@@ -76,3 +78,9 @@
 
     }
 }
+
+.owl-nav {
+    display: none !important;
+    padding-right: 100px !important;
+}
+

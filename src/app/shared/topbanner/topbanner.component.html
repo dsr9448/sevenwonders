@@ -4,10 +4,10 @@
 
     </ng-container>
 
-    <div class="d-none d-md-flex feature-container ">
+    <div class="d-none d-md-flex  trending-deals-container justify-content-between">
         <ng-container *ngFor="let banner of topbanner">
             <a [routerLink]="banner.link">
-                <img src="{{banner.image}}" class="img-fluid" alt="">
+                <img [src]="imagePath.banners + banner.image" class="img-fluid" alt="">
             </a>
         </ng-container>
     </div>
@@ -15,8 +15,8 @@
 <div class="d-grid d-md-none top-banner-container">
     <ng-container *ngFor="let banner of topbanner">
         <div class="">
-            <a href="{{banner.link}}">
-                <img src="{{banner.image}}" class="img-fluid" alt="">
+            <a [routerLink]="banner.link">
+                <img [src]="imagePath.banners + banner.image" class="img-fluid" alt="">
             </a>
         </div>
     </ng-container>

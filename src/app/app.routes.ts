@@ -5,12 +5,14 @@ import { PagenotfoundComponent } from './pages/pagenotfound/pagenotfound.compone
 import { ProductcategoryComponent } from './pages/productcategory/productcategory.component';
 import { ProductsubcategoryComponent } from './pages/productsubcategory/productsubcategory.component';
 import { ProductdetailsComponent } from './pages/productdetails/productdetails.component';
+import { PreloaderComponent } from './shared/preloder/preloder.component';
 export const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'preloader', component: PreloaderComponent },
   { path: 'home', component: HomeComponent },
   { path: 'category/:slug', component: ProductcategoryComponent },
   {path: 'subcategory/:slug', component: ProductsubcategoryComponent},
-  {path: 'product/:slug', component: ProductdetailsComponent},
+  {path: 'product/:productId', component: ProductdetailsComponent},
   { path: '**', component: PagenotfoundComponent }
 ];
 

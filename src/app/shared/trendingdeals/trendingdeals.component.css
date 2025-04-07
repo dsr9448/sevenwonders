@@ -67,6 +67,8 @@
 
 .shop-card img {
     width: 164px;
+    height: 92px;
+    object-fit: contain;
 }
 
 

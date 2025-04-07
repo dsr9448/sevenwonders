@@ -19,7 +19,7 @@
 
                             <!-- Product Image -->
                             <div class="product-image">
-                                <a routerLink=" /product/{{product.slug}}" class="text-decoration-none">
+                                <a routerLink="/product/{{product.slug}}" class="text-decoration-none">
                                     <img [src]="product.image1 ? imagePath.productcaro + product.image1 : 'https://placehold.co/140x140'"  [alt]="product.name">
                                 </a>
                             </div>
@@ -42,8 +42,8 @@
                                 <div class="price-section d-flex justify-content-between">
                                     <div class="price-section-left">
                                         <span class="currency">AED</span>
-                                        <span class="price">{{product.price}}</span>
-                                        <span class="sprice">{{product.sprice}}</span>
+                                        <span class="price">{{product.sprice}}</span>
+                                        <span class="sprice">{{product.price}}</span>
                                     </div>
                                     <div class="tags-container">
 

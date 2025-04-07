@@ -10,7 +10,7 @@ import { IMAGE_PATHS } from '../constants/api-paths';
   styleUrl: './topbanner.component.css'
 })
 export class TopbannerComponent implements OnInit {
-  @Input() topbanner: any[] = [];
+  @Input() topbanner: any;
   @Input() title1: string = '';
   @Input() title2: string = '';
   @Input() iscenter: boolean = false;

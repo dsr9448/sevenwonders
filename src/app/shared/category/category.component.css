@@ -14,6 +14,8 @@
 .feature-card img {
     width: 76px;
     margin-bottom: 12px;
+    height: 64px;
+    object-fit: contain;
 }
 
 .feature-card-content h5 {

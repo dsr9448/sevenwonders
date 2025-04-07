@@ -12,6 +12,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class CategoryComponent implements OnInit {
   @Input() categoryData: any;
+
+  @Input() isSubCategory: boolean = false;
   @Input() isProductDetails: boolean = false;
   imagePath = IMAGE_PATHS;
   customOptions: OwlOptions = {
@@ -45,6 +47,7 @@ export class CategoryComponent implements OnInit {
   ngOnInit(): void {
     this.categoryData = this.categoryData;
     this.isProductDetails = this.isProductDetails;
+    this.isSubCategory = this.isSubCategory;
   }
 
 

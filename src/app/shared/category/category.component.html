@@ -7,7 +7,7 @@
 
                     <div class="feature-card">
                         <a [href]="'/category/' + item.link" class="text-decoration-none">
-                            <img [src]="imagePath.parentCategory + item.image" alt="" class="mx-auto rounded-circle">
+                            <img [src]="isSubCategory ? imagePath.brand + item.image : imagePath.parentCategory + item.image" alt="" class="mx-auto rounded-circle">
                             <div class="feature-card-content">
                                 <h5>{{item.title | slice: 0:14
                                     }}</h5>

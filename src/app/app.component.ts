@@ -4,11 +4,12 @@ import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { filter } from 'rxjs/operators';
 import { isPlatformBrowser } from '@angular/common';
+import { PreloaderComponent } from './shared/preloder/preloder.component';
 import { CartService } from './services/cartservices';
 import { CartComponent } from './shared/cart/cart.component';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,RouterModule,HeaderComponent,FooterComponent,CartComponent],
+  imports: [RouterOutlet,RouterModule,HeaderComponent,FooterComponent,CartComponent,PreloaderComponent],
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

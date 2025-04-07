@@ -1,20 +1,28 @@
-<!-- <app-breadcrumb category="Category" bannerimage="banner.png" [items]="items"></app-breadcrumb>
-<app-category [categoryData]="categoryData"></app-category>
-<app-topbanner [topbanner]="topbanner" [title1]="'NEWLY'" [title2]="'LAUNCHED'" [iscenter]=true></app-topbanner>
-<app-banners [banner]="banner"></app-banners>
+<app-breadcrumb category="{{categoryData.name}}" bannerimage="banner.png" [items]="categoryData.items"></app-breadcrumb>
+<app-category [categoryData]="categoryData.categoryData" [isSubCategory]="true"></app-category>
+<app-topbanner [topbanner]="categoryData.topbanner.banner" [title1]="categoryData.topbanner.title.split(' ')[0]"
+    [title2]="categoryData.topbanner.title.split(' ').slice(1).join(' ')" [iscenter]=true></app-topbanner>
+<app-banners [banner]="categoryData.banner"></app-banners>
 <div class="isProduct">
     <app-productcaro [title1]="'Best'" [title2]="'Sellers'" [buttonText]="'View All'" [href]="'#'"
-        [products]="products"></app-productcaro>
+        [products]="categoryData.products.products"></app-productcaro>
+    <app-trendingdeals [dealsdata]="categoryData.dealdata"></app-trendingdeals>
 </div>
-<app-trendingdeals [dealsdata]="dealsdata"></app-trendingdeals>
-<app-banners [banner]="banner"></app-banners>
-<app-shopbycat [shopbycatData]="shopbycatData"></app-shopbycat>
-<app-newproducts [newproduct]="newproduct" [isproduct]="true"></app-newproducts>
-<app-deals [title1]="'GET DISCOUNT '" [title2]="' on Combo Offers'" [buttonText]="'View All'" [href]="'#'"
-    [dealsData]="dealsData" [isWhite]=true></app-deals>
-<app-offers [offers]="offers"></app-offers>
-<app-heading [title1]="'FILTER'" [title2]="'Your Preferences'" [iscenter]=true  class="d-none d-md-block"></app-heading>
+<app-banners [banner]="categoryData.banner2"></app-banners>
+<app-shopbycat [shopbycatData]="categoryData.shopbycatData"></app-shopbycat>
+<app-newproducts [newproduct]="categoryData.newproduct" [isproduct]="true"></app-newproducts>
+<app-deals [title1]="categoryData.dealsData.title.split(' ')[0]"
+    [title2]="categoryData.dealsData.title.split(' ').slice(1).join(' ')"
+    [buttonText]="categoryData.dealsData.button_title" [href]="categoryData.dealsData.button_url"
+    [dealsData]="categoryData.dealsData.data " [isWhite]=true></app-deals>
+<app-offers [offers]="categoryData.offers"></app-offers>
+
+
+
+<app-heading [title1]="'FILTER'" [title2]="'Your Preferences'" [iscenter]=true class="d-none d-md-block"></app-heading>
 <div class="custom-container newhead d-block d-md-none">
-    <app-heading [title1]="'FILTER'" [title2]="'Your Preferences'" [buttonText]="'Filter'" [href]="'#'" class="d-block  d-md-none"></app-heading>
+    <app-heading [title1]="'FILTER'" [title2]="'Your Preferences'" [buttonText]="'Filter'" [href]="'#'"
+        class="d-block  d-md-none"></app-heading>
 </div>
-<app-productlisting [productdata]="productdata"></app-productlisting> -->
+
+<app-productlisting [productdata]="categoryData.productsData"></app-productlisting>

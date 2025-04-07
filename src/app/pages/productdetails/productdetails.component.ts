@@ -6,9 +6,10 @@ import { CategoryComponent } from "../../shared/category/category.component";
 import { ProductcaroComponent } from '../../shared/productcaro/productcaro.component';
 import { OwlOptions, CarouselComponent } from 'ngx-owl-carousel-o';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { title } from 'node:process';
-import { text } from 'node:stream/consumers';
+import { ApiService } from '../../services/api.service';
 import { HeadingComponent } from "../../shared/heading/heading.component";
+import { IMAGE_PATHS } from '../../shared/constants/api-paths';
+import { CartService } from '../../services/cartservices';
 
 interface RatingBreakdown {
   stars: number;
@@ -37,13 +38,15 @@ interface CustomerReview {
   styleUrl: './productdetails.component.css'
 })
 export class ProductdetailsComponent implements OnInit {
+  imagePath = IMAGE_PATHS;
   productId!: string;
+  productPage: any;
   categoryData: any[] = [];
   productDetails: any[] = [];
   productCarousel: any[] = [];
   selectedCurrency: string = 'AED';
   deliveryMessage: any[] = [];
-
+  productcart: any[] = [];
   priceDetails: any[] = [
     {
       Image: '../../../assets/icons/products/Money.svg',
@@ -62,333 +65,10 @@ export class ProductdetailsComponent implements OnInit {
   product: any[] = [
     {
 
-      categoryData: [
-        {
-          image: '../../../assets/images/category/5.jpg',
-          title: 'Kitchen',
-          link: ''
-        },
-        {
-          image: '../../../assets/images/category/6.jpg',
-          title: 'Digital Camera',
-          link: ''
-        },
-        {
-          image: '../../../assets/images/category/1.jpg',
-          title: 'Television',
-          link: ''
-        },
-        {
-          image: '../../../assets/images/category/2.jpg',
-          title: 'Smartphones',
-          link: ''
-        },
-        {
-          image: '../../../assets/images/category/4.jpg',
-          title: 'Gaming',
-          link: ''
-        },
-        {
-          image: '../../../assets/images/category/3.jpg',
-          title: 'Personal Care',
-          link: ''
-        },
-        {
-          image: '../../../assets/images/category/6.jpg',
-          title: 'Digital Camera',
-          link: ''
-        },
-        {
-          image: '../../../assets/images/category/1.jpg',
-          title: 'Television',
-          link: ''
-        },
-        {
-          image: '../../../assets/images/category/2.jpg',
-          title: 'Smartphones',
-          link: ''
-        },
-        {
-          image: '../../../assets/images/category/4.jpg',
-          title: 'Gaming',
-          link: ''
-        },
-        {
-          image: '../../../assets/images/category/3.jpg',
-          title: 'Personal Care',
-          link: ''
-        },
-
-      ],
-      productDetails: [
-        {
-          productimages: [
-            {
-              image1: '../../../assets/images/productsdetails/1.png',
-              image2: '../../../assets/images/productsdetails/2.png',
-              image3: '../../../assets/images/productsdetails/3.png',
-              image4: '../../../assets/images/productsdetails/4.png'
-            }
-          ],
-          brand: 'samsung',
-          productName: 'Samsung galaxy S23 Ultra 12GB 256GB Cream - Middle east version',
-          model: 'CKMSAM12564300',
-          sprice: 15200,
-          price: 17000,
-          sale: true,
-          expressDelivery: true,
-          standardDelivery: false,
-          discount: 20,
-          deliveredBy: 'Delivered by 1st Feb',
-          rating: 3.5,
-          ratingCount: 100,
-          reviewsCount: 1202,
-          banner: '../../../assets/images/productsdetails/productbanner.png',
-          additionalInformation: [
-            {
-              text: "The samsung galaxy S24 is universally use the new snapdragon 8 gen 3 across the world",
-            }, {
-
-              text: "The galaxy S24 have AI-optimized main camera photos. Night mode is also better. Nightography zoom will bring brighter nighttime photos with the zoom cameras",
-            }, {
-
-              text: "The samsung galaxy S24 ultra comes with emergency texting via satellite support over the 3GPP standard",
-            },
 
 
-          ],
-          color: [
-            {
-              color: 'red',
-              image: '../../../assets/images/productsdetails/color-1.png'
-            },
-            {
-              color: 'blue',
-              image: '../../../assets/images/productsdetails/color-2.png'
-            },
-            {
-              color: 'green',
-              image: '../../../assets/images/productsdetails/color-3.png'
-            },
-            {
-              color: 'yellow',
-              image: '../../../assets/images/productsdetails/color-4.png'
-            }
-          ],
-          storage: [
-            {
-              storage: '256GB',
-            },
-            {
-              storage: '512GB',
-            },
 
-
-          ],
-          ram: [
-            {
-              ram: '12GB',
-            },
-            {
-              ram: '16GB',
-            },
-
-
-          ],
-          frequentlyBought: [
-            {
-              image: '../../../assets/images/productsdetails/product.png',
-              title: 'Samsung galaxy  ..',
-              price: 49,
-              rating: 3.5,
-            },
-            {
-              image: '../../../assets/images/productsdetails/product.png',
-              title: 'Samsung galaxy  ..',
-              price: 49,
-              rating: 3.5,
-            },
-            {
-              image: '../../../assets/images/productsdetails/product.png',
-              title: 'Samsung galaxy  ..',
-              price: 49,
-              rating: 3.5,
-            }
-
-          ],
-          productMessage: 'Unboxing Mandatory',
-          productsImages: [
-            {
-              Image: '../../../assets/images/productsdetails/productdetails1.png'
-            },
-            {
-              Image: '../../../assets/images/productsdetails/productdetails2.png'
-            },
-            {
-              Image: '../../../assets/images/productsdetails/productdetails3.png'
-            },
-            {
-              Image: '../../../assets/images/productsdetails/productdetails4.png'
-            },
-            {
-              Image: '../../../assets/images/productsdetails/productdetails5.png'
-            },
-            {
-              Image: '../../../assets/images/productsdetails/productdetails6.png'
-            }
-          ],
-
-        }
-      ],
-      technicalDetails: [
-        {
-          name: "Secondary Camera Resolution",
-          value: "12 MP"
-        },
-        {
-          name: "Charging Type",
-          value: "C-Type"
-        },
-        {
-          name: "Version",
-          value: "Middle East Version"
-        },
-        {
-          name: "Model Number",
-          value: "SM-S928BZTCMEA, SM-S928B/DS"
-        },
-        {
-          name: "Charging Type",
-          value: "C-Type"
-        },
-        {
-          name: "Charging Type",
-          value: "C-Type"
-        },
-        {
-          name: "Version",
-          value: "Middle East Version"
-        },
-        {
-          name: "Model Number",
-          value: "SM-S928BZTCMEA, SM-S928B/DS"
-        },
-        {
-          name: "Charging Type",
-          value: "C-Type"
-        },
-        {
-          name: "Version",
-          value: "Middle East Version"
-        },
-        {
-          name: "Model Number",
-          value: "SM-S928BZTCMEA, SM-S928B/DS"
-        },
-        {
-          name: "Charging Type",
-          value: "C-Type"
-        },
-        {
-          name: "Charging Type",
-          value: "C-Type"
-        },
-        {
-          name: "Version",
-          value: "Middle East Version"
-        },
-        {
-          name: "Model Number",
-          value: "SM-S928BZTCMEA, SM-S928B/DS"
-        },
-        {
-          name: "Charging Type",
-          value: "C-Type"
-        }
-      ],
-      productcarousel: [
-        {
-          id: 1,
-          brand: 'CANON',
-          name: 'Hitachi Drum Vacuum Cleaner 2100 Watts, 18 Liters Tank Dust Capacity With 7.8M Extra',
-          image: '../../../assets/images/products/product1.png',
-          price: 560,
-          rating: 3.5,
-          sale: true,
-          expressDelivery: true,
-          standardDelivery: false,
-          quantity: 0,
-          sprice: 500,
-        },
-        {
-          id: 2,
-          brand: 'CANON',
-          name: 'Hitachi Drum Vacuum Cleaner 2100 Watts, 18 Liters Tank Dust Capacity With 7.8M Extra',
-          image: '../../../assets/images/products/product1.png',
-          price: 560,
-          rating: 3.5,
-          sale: false,
-          expressDelivery: false,
-          standardDelivery: true,
-          quantity: 1,
-          sprice: 500,
-        },
-        {
-          id: 3,
-          brand: 'CANON',
-          name: 'Hitachi Drum Vacuum Cleaner 2100 Watts, 18 Liters Tank Dust Capacity With 7.8M Extra',
-          image: '../../../assets/images/products/product1.png',
-          price: 560,
-          rating: 3.5,
-          sale: true,
-          expressDelivery: true,
-          standardDelivery: false,
-          quantity: 1,
-          sprice: 500,
-        },
-        {
-          id: 4,
-          brand: 'CANON',
-          name: 'Hitachi Drum Vacuum Cleaner 2100 Watts, 18 Liters Tank Dust Capacity With 7.8M Extra',
-          image: '../../../assets/images/products/product1.png',
-          price: 560,
-          rating: 3.5,
-          sale: false,
-          expressDelivery: false,
-          standardDelivery: false,
-          quantity: 1,
-          sprice: 500,
-        },
-        {
-          id: 5,
-          brand: 'CANON',
-          name: 'Hitachi Drum Vacuum Cleaner 2100 Watts, 18 Liters Tank Dust Capacity With 7.8M Extra',
-          image: '../../../assets/images/products/product1.png',
-          price: 560,
-          rating: 3.5,
-          sale: true,
-          expressDelivery: true,
-          standardDelivery: false,
-          quantity: 1,
-          sprice: 500,
-        },
-        {
-          id: 6,
-          brand: 'CANON',
-          name: 'Hitachi Drum Vacuum Cleaner 2100 Watts, 18 Liters Tank Dust Capacity With 7.8M Extra',
-          image: '../../../assets/images/products/product1.png',
-          price: 560,
-          rating: 3.5,
-          sale: false,
-          expressDelivery: false,
-          standardDelivery: true,
-          quantity: 1,
-          sprice: 500,
-        },
-        // Add more products here
-
-      ],
-      deliveryMessage:[
+      deliveryMessage: [
         {
           title: 'Easy Returns & Exchange',
           desc: 'Get free returns on eligible items.',
@@ -462,14 +142,7 @@ export class ProductdetailsComponent implements OnInit {
   };
   technicalDetails: any[] = [];
 
-  totalReviews: number = 20000;
-  ratingBreakdown: RatingBreakdown[] = [
-    { stars: 5, percentage: 70 },
-    { stars: 4, percentage: 10 },
-    { stars: 3, percentage: 15 },
-    { stars: 2, percentage: 5 },
-    { stars: 1, percentage: 0 }
-  ];
+  ratingBreakdown: RatingBreakdown[] = [];
 
   reviewImages: ReviewImage[] = [
     { id: 1, imageUrl: '../../../assets/images/productsdetails/review-1.png' },
@@ -516,18 +189,24 @@ export class ProductdetailsComponent implements OnInit {
       price: 38.9,
     }
   ]
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private api: ApiService, private cartService: CartService) { }
 
+  openCart() {
+    this.cartService.showCart();
+  }
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.productId = params['productId'];
-      this.product = this.product;
-      this.categoryData = this.product[0].categoryData;
-      this.productDetails = this.product[0].productDetails;
-      this.technicalDetails = this.product[0].technicalDetails;
-      this.productCarousel = this.product[0].productcarousel;
+      this.api.getProductDetails(this.productId).subscribe((res) => {
+        this.productPage = res?.productPage || {};
+        this.categoryData = this.productPage[0].categoryData;
+        this.product = this.productPage.product;
+        this.productCarousel = this.productPage[0].productcarousel;
+        this.productDetails = this.productPage[0].productDetails;
+        this.technicalDetails = this.productPage[0].technicalDetails;
+        this.currentImage = this.productPage[0]?.productimages[0]?.image1;
+      });
       this.deliveryMessage = this.product[0].deliveryMessage;
-      this.currentImage = this.productDetails[0]?.productimages[0]?.image1;
     });
   }
 
@@ -552,5 +231,27 @@ export class ProductdetailsComponent implements OnInit {
   writeReview() {
     // Implement write review functionality
     console.log('Write review clicked');
+  }
+  addToCart() {
+    const product = {
+      id: this.productDetails[0]?.productid,
+      brand: this.productDetails[0]?.brand,
+      name: this.productDetails[0]?.productName,
+      image: this.productDetails[0]?.productimages[0]?.image1,
+      price: this.productDetails[0]?.price,
+      sprice: this.productDetails[0]?.sprice,
+      quantity: 1,
+      rating: this.productDetails[0]?.rating,
+      sale: this.productDetails[0]?.sale,
+      expressDelivery: this.productDetails[0]?.expressDelivery,
+      standardDelivery: this.productDetails[0]?.standardDelivery
+    };
+    
+    this.cartService.addToCart(product);
+    this.cartService.showCart();
+  }
+
+  toggleWishlist(product: any): void {
+    // Implement wishlist functionality
   }
 }

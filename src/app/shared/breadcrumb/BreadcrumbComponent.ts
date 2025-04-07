@@ -1,6 +1,7 @@
 import { Component,OnInit,Input } from '@angular/core';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { NgIf,NgFor } from '@angular/common';
+import { IMAGE_PATHS } from '../constants/api-paths';
 @Component({
   selector: 'app-breadcrumb',
   imports: [NgIf,NgFor,CarouselModule],
@@ -11,7 +12,7 @@ export class BreadcrumbComponent implements OnInit {
   @Input() category: string = '';
   @Input() subcategory: string = '';
   @Input() bannerimage: string = '';
-
+  imagePath = IMAGE_PATHS.breadcrumbs;
   @Input() items: any[] = [];
   carouselOptions = {
     loop: true,

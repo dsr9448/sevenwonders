@@ -1,19 +1,22 @@
-import { Component, OnInit ,Input} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CommonModule } from '@angular/common'; // includes NgIf, NgFor
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { IMAGE_PATHS } from '../constants/api-paths';
+import { CartService } from '../../services/cartservices';
 
 @Component({
   selector: 'app-productlisting',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './productlisting.component.html',
   styleUrls: ['./productlisting.component.css']
 })
 export class ProductlistingComponent implements OnInit {
-  @Input() productdata: any[] = [];
+  @Input() productdata: any;
   bannerimage: any[] = [];
   productlist: any[] = [];
-
+  imagePath = IMAGE_PATHS.productcaro;
 
   // Filters
   priceRange = 1000;
@@ -67,12 +70,21 @@ export class ProductlistingComponent implements OnInit {
       this.selectedRatings = this.selectedRatings.filter(r => r !== range);
     }
   }
+  constructor(private cartService: CartService) { }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.productdata = this.productdata;
-    this.bannerimage= this.productdata[0].bannerImage;
-    this.productlist= this.productdata[0].productlist;
+    this.bannerimage = this.productdata.bannerImage;
+    this.productlist = this.productdata.productlist;
 
-    
+
+  }
+  addToCart(product: any) {
+    this.cartService.addToCart(product);
+    this.cartService.showCart();
+  }
+
+  toggleWishlist(product: any): void {
+    // Implement wishlist functionality
   }
 }

@@ -106,7 +106,7 @@
 
                             <!-- Product Image -->
                             <div class="product-image">
-                                <img [src]="groupProduct.image" [alt]="groupProduct.name">
+                                <img [src]="groupProduct.image ? imagePath + groupProduct.image : 'https://placehold.co/249x249'"  [alt]="groupProduct.name">
                             </div>
 
                             <!-- Product Details -->
@@ -140,7 +140,7 @@
 
                                 <!-- Action Buttons -->
                                 <div class="action-buttons {{groupProduct.quantity == 0 ? 'outofstock' : ''}}">
-                                    <button class="add-to-cart" *ngIf="groupProduct.quantity > 0; else outofstock">
+                                    <button class="add-to-cart" (click)="addToCart(groupProduct)" *ngIf="groupProduct.quantity > 0; else outofstock">
                                         <img src="../../../assets/icons/cart.svg" width="16" alt=""> Add to cart
                                     </button>
                                     <ng-template #outofstock>

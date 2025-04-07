@@ -451,3 +451,9 @@ body::-webkit-scrollbar-thumb {
 .category-container-caro .owl-nav {
     margin-top: -10px !important;
 }
+.out-of-stock{
+    background: var(--sale-color) !important;
+    color: var(--white-color) !important;
+    font-weight: 500 !important;
+    text-transform: uppercase !important;
+}

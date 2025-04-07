@@ -12,17 +12,20 @@ import { TrendingdealsComponent } from "../../shared/trendingdeals/trendingdeals
 import { ProductlistingComponent } from '../../shared/productlisting/productlisting.component';
 import { HeadingComponent } from "../../shared/heading/heading.component";
 import { ApiService } from '../../services/api.service';
+import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-productcategory',
-  imports: [BreadcrumbComponent, CategoryComponent, TopbannerComponent, BannersComponent, ProductcaroComponent, NewproductsComponent, ShopbycatComponent, DealsComponent, OffersComponent, TrendingdealsComponent, ProductlistingComponent, HeadingComponent],
+  imports: [CommonModule, BreadcrumbComponent, CategoryComponent, TopbannerComponent, BannersComponent, ProductcaroComponent, NewproductsComponent, ShopbycatComponent, DealsComponent, OffersComponent, TrendingdealsComponent, ProductlistingComponent, HeadingComponent],
   templateUrl: './productcategory.component.html',
   styleUrl: './productcategory.component.css'
 })
 export class ProductcategoryComponent implements OnInit {
   iscenter = true;
   categoryData: any;
-  
-  constructor(private api: ApiService) { }
+  slug: string = '';
+  constructor(private api: ApiService, private route: ActivatedRoute) { }
   // categoryData = [
   //   {
   //     image: '../../../assets/images/category/5.jpg',
@@ -304,37 +307,37 @@ export class ProductcategoryComponent implements OnInit {
   //   { image: "../../../assets/images/Offers/2.jpg", link: "https://example.com/page2" },
   //   { image: "../../../assets/images/Offers/3.jpg", link: "https://example.com/page3" },
   // ];
-  // dealsdata = [
-  //   {
-  //     deals: [
+  dealsdata = [
+    {
+      deals: [
 
-  //       {
-  //         title: "MICROSOFT",
-  //         description: "Xbox Series X Controller Carbon Black",
-  //         image: "../../../assets/images/shopbycat/1.png",
-  //         link: "/"
-  //       },
-  //       {
-  //         title: "MICROSOFT",
-  //         description: "Xbox Series X Controller Carbon Black",
-  //         image: "../../../assets/images/shopbycat/2.png",
-  //         link: "/"
-  //       },
-  //       {
-  //         title: "MICROSOFT",
-  //         description: "Xbox Series X Controller Carbon Black",
-  //         image: "../../../assets/images/shopbycat/3.png",
-  //         link: "/"
-  //       },
+        {
+          title: "MICROSOFT",
+          description: "Xbox Series X Controller Carbon Black",
+          image: "../../../assets/images/shopbycat/1.png",
+          link: "/"
+        },
+        {
+          title: "MICROSOFT",
+          description: "Xbox Series X Controller Carbon Black",
+          image: "../../../assets/images/shopbycat/2.png",
+          link: "/"
+        },
+        {
+          title: "MICROSOFT",
+          description: "Xbox Series X Controller Carbon Black",
+          image: "../../../assets/images/shopbycat/3.png",
+          link: "/"
+        },
 
 
-  //     ],
-  //     banner: {
-  //       image: "../../../assets/images/Offers/2.jpg",
-  //       link: "/"
-  //     }
-  //   }
-  // ];
+      ],
+      banner: {
+        image: "../../../assets/images/Offers/2.jpg",
+        link: "/"
+      }
+    }
+  ];
   // productdata = [
   //   {
   //     productlist: [
@@ -588,19 +591,13 @@ export class ProductcategoryComponent implements OnInit {
   //   }
   // ];
   ngOnInit(): void {
-    // this.categoryData = this.categoryData;
-    // this.items = this.items;
-    // this.topbanner = this.topbanner;
-    // this.banner = this.banner;
-    // this.products = this.products;
-    // this.newproduct = this.newproduct;
-    // this.shopbycatData = this.shopbycatData;
-    // this.dealsData = this.dealsData;
-    //  this.offers = this.offers;
-    //  this.dealsdata = this.dealsdata;
-    //  this.productdata = this.productdata;
-    this.api.getCategoryData('it-1000').subscribe((res) => {
-      console.log(res);
+    this.route.params.subscribe((params) => {
+      this.slug = params['slug'];
+    });
+   
+    this.api.getCategoryData(this.slug).subscribe((res) => {
+      this.categoryData = res?.categorypage || {};
+
     });
   }
 }

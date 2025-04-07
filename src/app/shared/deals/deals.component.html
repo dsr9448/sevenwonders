@@ -1,16 +1,15 @@
 <div class="{{isHome ? '' : 'bg-p'}}"> 
-
   <div class="custom-container deals  ">
     <div class="selling-fast-container">
       <app-heading [title1]="title1" [title2]="title2" [buttonText]="buttonText"  [href]="href" [isWhite]= isWhite ></app-heading>
       <div class="d-flex selling-fast justify-content-between align-items-center mt-24  {{isHome ? 'bg-light' : 'bg-p'}}">
         <ng-container *ngFor="let item of dealsData">
-          <a href="" class="text-decoration-none">
+          <a [routerLink]="item.url" class="text-decoration-none">
             <div class="selling-card {{isHome ? 'bg-p' : 'bg-light'}}">
               <img [src]="imagePath + item.image" alt="">
               <div class="selling-card-content text-center">
                 <h5 class="mb-0">{{item.title}}</h5>
-                <p>{{item.content}}</p>
+                <p>{{item.content }}</p>
               </div>
             </div>
           </a>

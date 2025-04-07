@@ -2,9 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { HeadingComponent } from "../heading/heading.component";
 import { IMAGE_PATHS } from "../constants/api-paths";
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-deals',
-  imports: [HeadingComponent, NgFor],
+  imports: [HeadingComponent, NgFor, RouterModule],
   templateUrl: './deals.component.html',
   styleUrl: './deals.component.css'
 })

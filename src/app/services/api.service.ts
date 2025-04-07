@@ -14,4 +14,10 @@ export class ApiService {
   getCategoryData(slug: string ): Observable<any> {
     return this.http.get(`${this.baseUrl}/category-api/${slug}`);
   }
+  getSubCategoryData(slug: string ): Observable<any> {
+    return this.http.get(`${this.baseUrl}/brands/${slug}`);
+  }
+  getProductDetails(productId: string ): Observable<any> {
+    return this.http.get(`${this.baseUrl}/getproductdetails/${productId}`);
+  }
 }

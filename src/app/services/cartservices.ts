@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 interface CartItem {
   id: number;
   brand: string;
@@ -19,6 +19,7 @@ interface CartItem {
   providedIn: 'root'
 })
 export class CartService {
+  constructor(private snackBar: MatSnackBar) { }
   private isCartVisibleSubject = new BehaviorSubject<boolean>(false);
   isCartVisible$ = this.isCartVisibleSubject.asObservable();
 
@@ -42,16 +43,21 @@ export class CartService {
     const existingItem = currentItems.find(item => item.id === product.id);
 
     if (existingItem) {
-      // If item exists, increment quantity
-      const updatedItems = currentItems.map(item =>
-        item.id === product.id
-          ? { ...item, quantity: item.quantity + 1 }
-          : item
-      );
-      this.cartItemsSubject.next(updatedItems);
+      this.snackBar.open('Item already in cart', 'Close', {
+        duration: 3000,
+        horizontalPosition: 'right',
+        verticalPosition: 'top',
+        panelClass: ['snackbar-container'],
+
+
+      });
+
+      this.hideCart();
+
     } else {
       // If item is new, add to cart
       this.cartItemsSubject.next([...currentItems, { ...product, quantity: 1 }]);
+
     }
   }
 

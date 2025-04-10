@@ -42,8 +42,8 @@
                                 <div class="price-section d-flex justify-content-between">
                                     <div class="price-section-left">
                                         <span class="currency">AED</span>
-                                        <span class="price">{{product.sprice}}</span>
-                                        <span class="sprice">{{product.price}}</span>
+                                        <span class="price">{{product.sprice=='0'|| product.sprice==null ? product.price : product.sprice}}</span>
+                                        <span *ngIf="product.sprice!='0' || product.sprice!=null" class="sprice">{{product.price}}</span>
                                     </div>
                                     <div class="tags-container">
 
@@ -69,8 +69,8 @@
                                                 class="mx-auto d-inline d-md-none" alt="">
                                         </button>
                                     </ng-template>
-                                    <button type="button" class="wishlist" (click)="toggleWishlist(product)">
-                                        <i class="far fa-heart"></i>
+                                    <button type="button" class="wishlist" (click)="toggleWishlist(product)" >
+                                        <i class="far fa-heart"  ></i>
                                     </button>
                                 </div>
                                 <!-- Action Buttons -->

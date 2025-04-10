@@ -100,13 +100,17 @@
                             <div class="express-badge {{groupProduct.expressDelivery ? 'express' : 'standard'}}"
                                 *ngIf="groupProduct.expressDelivery ||  groupProduct.standardDelivery">
                                 <img src="../../../assets/icons/{{groupProduct.expressDelivery ? 'delivery.svg' : 'bestseller.svg'}} "
-                                    alt=""> <span class="text-uppercase">{{groupProduct.expressDelivery ?'EXPRESS':'Standard'}}
+                                    alt=""> <span class="text-uppercase">{{groupProduct.expressDelivery
+                                    ?'EXPRESS':'Standard'}}
                                     DELIVERY</span>
                             </div>
 
                             <!-- Product Image -->
                             <div class="product-image">
-                                <img [src]="groupProduct.image ? imagePath + groupProduct.image : 'https://placehold.co/249x249'"  [alt]="groupProduct.name">
+                                <a routerLink="/product/{{groupProduct.slug}}" class="text-decoration-none">
+                                    <img [src]="groupProduct.image ? imagePath + groupProduct.image : 'https://placehold.co/249x249'"
+                                        [alt]="groupProduct.name">
+                                </a>
                             </div>
 
                             <!-- Product Details -->
@@ -119,7 +123,9 @@
                                 </div>
 
                                 <!-- Rating -->
-                                <div class="name">{{groupProduct.name}}</div>
+                                <a routerLink="/product/{{groupProduct.slug}}" class="text-decoration-none">
+                                    <div class="name">{{groupProduct.name}}</div>
+                                </a>
 
                                 <!-- Price Section -->
                                 <div class="price-section d-flex justify-content-between">
@@ -132,7 +138,8 @@
                                         <span class="tags sale" *ngIf="groupProduct.sale">
                                             Sale <img src="../../../assets/icons/sale.svg" alt="">
                                         </span>
-                                        <span class="tags discount" *ngIf="groupProduct.discount">{{groupProduct.discount}}%
+                                        <span class="tags discount"
+                                            *ngIf="groupProduct.discount">{{groupProduct.discount}}%
                                             off</span>
                                     </div>
 
@@ -140,7 +147,8 @@
 
                                 <!-- Action Buttons -->
                                 <div class="action-buttons {{groupProduct.quantity == 0 ? 'outofstock' : ''}}">
-                                    <button class="add-to-cart" (click)="addToCart(groupProduct)" *ngIf="groupProduct.quantity > 0; else outofstock">
+                                    <button class="add-to-cart" (click)="addToCart(groupProduct)"
+                                        *ngIf="groupProduct.quantity > 0; else outofstock">
                                         <img src="../../../assets/icons/cart.svg" width="16" alt=""> Add to cart
                                     </button>
                                     <ng-template #outofstock>
@@ -148,15 +156,15 @@
                                             Out of Stock
                                         </button>
                                     </ng-template>
-                                    <button class="wishlist">
-                                        <i class="far fa-heart"></i>
+                                    <button type="button" class="wishlist" (click)="toggleWishlist(product)" >
+                                        <i class="far fa-heart"  ></i>
                                     </button>
                                 </div>
                                 <div class="md-action-button d-flex d-md-none">
                                     <button class="add-to-cart ">
                                         <img src="../../../assets/icons/cart.svg" width="20" class="mx-auto" alt="">
                                     </button>
-                                    <button class="wishlist">
+                                    <button type="button" class="wishlist" (click)="toggleWishlist(product)" >
                                         <i class="far fa-heart"></i>
                                     </button>
                                 </div>
@@ -167,9 +175,8 @@
 
                 <!-- Show banner after each group of 6 products -->
                 <ng-container *ngIf="(i + 1) % 6 === 0 && bannerimage.length > 0">
-                    <img [src]="bannerimage[((i + 1) / 6 - 1) % bannerimage.length].image" 
-                         class="img-fluid banner-image" 
-                         alt="">
+                    <img [src]="bannerimage[((i + 1) / 6 - 1) % bannerimage.length].image"
+                        class="img-fluid banner-image" alt="">
                 </ng-container>
             </ng-container>
         </div>

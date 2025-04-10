@@ -1,0 +1,35 @@
+<div class="main-signin-container ">
+    <div class="background-container">
+        <div class="background-scroll">
+            <img src="../../../assets/images/signin/1.png" alt="Background 1">
+            <img src="../../../assets/images/signin/2.png" alt="Background 2">
+            <img src="../../../assets/images/signin/3.png" alt="Background 3">
+            <img src="../../../assets/images/signin/4.png" alt="Background 4">
+        </div>
+    </div>
+    <div class="signin-container">
+        <div class="signin-content">
+            <div class="signin-form">
+                <h1 class="text-center">Sign In <span>to your account</span></h1>
+                <div class="d-flex justify-content-center signin-form-button">
+                    <button><img src="../../../assets/icons/facebook.svg" alt=""> Facebook</button>
+                    <button><img src="../../../assets/icons/google.svg" alt=""> Google</button>
+                </div>
+            </div>
+            <div class="signin-form-content">
+                <p class="mb-0">Login With Email ID</p>
+                <form method="post" action="">
+    
+                    <input type="email" class="form-control" id="email" placeholder="Email id">
+                    <input type="password" class="form-control" id="password" placeholder="Password">
+                    <a type="submit">Sign In</a>
+                    <a [routerLink]="['/signup']"  class="text-decoration-none"  >New To Seven Wonders ? Sign Up</a>
+   
+                </form>
+                <a [routerLink]="['/forgetpassword']" class="text-center text-decoration-none forgot-password">Forgot Password?</a>
+            </div>
+        </div>
+    </div>
+    
+</div>
+

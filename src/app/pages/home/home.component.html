@@ -1,5 +1,5 @@
 <app-carousel [items]="homepageData.sliderData"></app-carousel>
-<app-category [categoryData]="categoryData"></app-category>
+<app-category [categoryData]="categoryData" slug="category"></app-category>
 <app-topbanner [topbanner]="homepageData.topbanner"></app-topbanner>
 <app-productcaro [title1]="homepageData.productcardata['title'].split(' ')[0]" [title2]="homepageData.productcardata['title'].split(' ').slice(1).join(' ')" [buttonText]="'View All'"
     [href]="''" [products]="homepageData.productcardata['products']"></app-productcaro>

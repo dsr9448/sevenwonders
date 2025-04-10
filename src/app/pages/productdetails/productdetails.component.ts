@@ -10,6 +10,8 @@ import { ApiService } from '../../services/api.service';
 import { HeadingComponent } from "../../shared/heading/heading.component";
 import { IMAGE_PATHS } from '../../shared/constants/api-paths';
 import { CartService } from '../../services/cartservices';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 interface RatingBreakdown {
   stars: number;
@@ -189,7 +191,7 @@ export class ProductdetailsComponent implements OnInit {
       price: 38.9,
     }
   ]
-  constructor(private route: ActivatedRoute, private api: ApiService, private cartService: CartService) { }
+  constructor(private route: ActivatedRoute, private api: ApiService, private cartService: CartService, private snackBar: MatSnackBar) { }
 
   openCart() {
     this.cartService.showCart();
@@ -250,8 +252,15 @@ export class ProductdetailsComponent implements OnInit {
     this.cartService.addToCart(product);
     this.cartService.showCart();
   }
-
   toggleWishlist(product: any): void {
-    // Implement wishlist functionality
+    this.api.addToWishlist(product.id).subscribe((data) => {
+      console.log(data);
+      this.snackBar.open('Product added to wishlist', 'Close', {
+        duration: 3000,
+        horizontalPosition: 'right',
+        verticalPosition: 'top',
+        panelClass: ['snackbar-container'],
+      });
+    });
   }
 }

@@ -1,5 +1,5 @@
 <app-breadcrumb category="{{categoryData.name}}" bannerimage="banner.png" [items]="categoryData.items"></app-breadcrumb>
-<app-category [categoryData]="categoryData.categoryData" [isSubCategory]="true"></app-category>
+<app-category [categoryData]="categoryData.categoryData" [isSubCategory]="true" slug="subcategory"></app-category>
 <app-topbanner [topbanner]="categoryData.topbanner.banner" [title1]="categoryData.topbanner.title.split(' ')[0]"
     [title2]="categoryData.topbanner.title.split(' ').slice(1).join(' ')" [iscenter]=true></app-topbanner>
 <app-banners [banner]="categoryData.banner"></app-banners>

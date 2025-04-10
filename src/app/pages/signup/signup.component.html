@@ -1,0 +1,47 @@
+<div class="main-signin-container ">
+    <div class="background-container">
+        <div class="background-scroll">
+            <img src="../../../assets/images/signin/1.png" alt="Background 1">
+            <img src="../../../assets/images/signin/2.png" alt="Background 2">
+            <img src="../../../assets/images/signin/3.png" alt="Background 3">
+            <img src="../../../assets/images/signin/4.png" alt="Background 4">
+        </div>
+    </div>
+    <div class="signin-container">
+        <div class="signin-content">
+            <div class="signin-form">
+                <h1 class="text-center d-block d-md-none">Sign Up <span>to your account</span></h1>
+
+                <p class="text-center pb-0 d-none d-md-block">Create Account</p>
+                <div class="d-flex justify-content-center signin-form-button">
+                    <button><img src="../../../assets/icons/facebook.svg" alt=""> Facebook</button>
+                    <button><img src="../../../assets/icons/google.svg" alt=""> Google</button>
+                </div>
+            </div>
+            <div class="signin-form-content">
+                <form method="post" action="">
+    
+                    <input type="text" class="form-control" id="first-name" placeholder="First Name">
+                    <input type="text" class="form-control" id="last-name" placeholder="Last Name">
+                    <input type="email" class="form-control" id="email" placeholder="Email id">
+                    <input type="tel" class="form-control" id="telephone" placeholder="Telephone Number">
+                    <input type="password" class="form-control" id="password" placeholder="Password">
+                    <input type="password" class="form-control" id="confirm-password" placeholder="Confirm Password">
+                    <!-- <div class="form-check">
+                        <input type="radio" class="form-check-input" id="male" name="gender" value="male">
+                        <label class="form-check-label" for="male">Male</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="female" name="gender" value="female">
+                        <label class="form-check-label" for="female">Female</label>
+                    </div> -->
+                    <a type="submit">Register Now</a>
+   
+                </form>
+                <a [routerLink]="['/signin']" class="text-center text-decoration-none text-capitalize forgot-password">Already have an account ? login !</a>
+            </div>
+        </div>
+    </div>
+    
+</div>
+

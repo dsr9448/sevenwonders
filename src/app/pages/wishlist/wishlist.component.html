@@ -1,0 +1,101 @@
+<app-productbreadcrumb [productName]="'Wishlist'"></app-productbreadcrumb>
+<div class="custom-container">
+    <div class="custom-container pe-0 pb-0">
+        <div class="product-container pe-0">
+           <div class="row" *ngIf="wishlistData.length > 0 else noData">
+               <ng-container *ngFor="let product of wishlistData">
+                <div class="col-md-3">
+                    <div class="product-card">
+                        <!-- Express Delivery Badge -->
+                        <div class="express-badge {{product.expressDelivery ? 'express' : 'standard'}}"
+                            *ngIf="product.expressDelivery ||  product.standardDelivery">
+                            <img src="../../../assets/icons/{{product.expressDelivery ? 'delivery.svg' : 'bestseller.svg'}} "
+                                alt=""> <span class="text-uppercase">{{product.expressDelivery
+                                ?'EXPRESS':'Standard'}}
+                                DELIVERY</span>
+                        </div>
+    
+                        <!-- Product Image -->
+                        <div class="product-image">
+                            <a routerLink="/product/{{product.slug}}" class="text-decoration-none">
+                                <img [src]="product.image1 ? imagePath + product.image1 : 'https://placehold.co/140x140'"  [alt]="product.name">
+
+                            </a>
+                        </div>
+    
+                        <!-- Product Details -->
+                        <div class="product-info">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="brand">{{product.brand}}</div>
+                                <div class="rating">
+                                    <span> {{product.rating}}</span> <i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+    
+                            <!-- Rating -->
+                            <a routerLink="/product/{{product.slug}}" class="text-decoration-none">
+                                <div class="name">{{product.name}}</div>
+                            </a>
+    
+                            <!-- Price Section -->
+                            <div class="price-section d-flex justify-content-between">
+                                <div class="price-section-left">
+                                    <span class="currency">AED</span>
+                                    <span class="price">{{product.sprice=='0' ? product.price : product.sprice}}</span>
+                                    <span *ngIf="product.sprice!='0'" class="sprice">{{product.price}}</span>
+                                </div>
+                                <div class="tags-container">
+    
+                                    <span class="tags sale" *ngIf="product.sale">
+                                        Sale <img src="../../../assets/icons/sale.svg" alt="">
+                                    </span>
+                                    <span class="tags discount" *ngIf="product.sprice">
+                                        {{ ((product.price - product.sprice) / product.price * 100) |
+                                        number:'1.0-0'
+                                        }}% off</span>
+                                </div>
+    
+                            </div>
+                            <div class="action-buttons {{product.quantity == 0 ? 'outofstock' : ''}}">
+                                <button type="button" class="add-to-cart" *ngIf="product.quantity > 0; else outofstock"
+                                    (click)="addToCart(product)">
+                                    <img src="../../../assets/icons/cart.svg" width="16" alt=""> Add to cart
+                                </button>
+                                <ng-template #outofstock>
+                                    <button type="button" class="add-to-cart outofstock text-white ">
+                                        <span class="d-none d-md-inline">Out of Stock</span>
+                                        <img src="../../../assets/icons/cart.svg" width="20"
+                                            class="mx-auto d-inline d-md-none" alt="">
+                                    </button>
+                                </ng-template>
+                                <button type="button" class="wishlist" (click)="toggleWishlist(product)">
+                                    <i class="fa-solid fa-heart"></i>
+                                </button>
+                            </div>
+                            <!-- Action Buttons -->
+    
+                            <div class="md-action-button {{product.quantity == 0 ? 'outofstock' : ''}}  d-flex d-md-none">
+                                <button class="add-to-cart" *ngIf="product.quantity > 0; else outofstock"
+                                    (click)="addToCart(product)">
+                                    <img src="../../../assets/icons/cart.svg" width="20" class="mx-auto" alt="">
+                                </button>
+    
+                                <button class="wishlist" (click)="toggleWishlist(product)">
+                                    <i class="fa-solid fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+           </div>
+           <ng-template #noData>
+            <div class="not-found-page ">
+                <h1 class="error-code"><i class="fa-solid fa-cart-shopping"></i></h1>
+                <p class="error-message">No products in your wishlist</p>
+                <a routerLink="/" class="btn btn-back">Shop Now</a>
+              </div>
+           </ng-template>
+        </div>
+    </div>
+</div>

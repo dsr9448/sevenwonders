@@ -12,7 +12,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class CategoryComponent implements OnInit {
   @Input() categoryData: any;
-
+@Input() slug: string = '';
   @Input() isSubCategory: boolean = false;
   @Input() isProductDetails: boolean = false;
   imagePath = IMAGE_PATHS;
@@ -48,6 +48,7 @@ export class CategoryComponent implements OnInit {
     this.categoryData = this.categoryData;
     this.isProductDetails = this.isProductDetails;
     this.isSubCategory = this.isSubCategory;
+    this.slug = this.slug;
   }
 
 

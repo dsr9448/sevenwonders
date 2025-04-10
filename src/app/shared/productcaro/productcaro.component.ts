@@ -5,7 +5,9 @@ import { HeadingComponent } from "../heading/heading.component";
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { CartService } from '../../services/cartservices';
-import { IMAGE_PATHS } from '../constants/api-paths';
+import { IMAGE_PATHS } from '../constants/api-paths'; 
+import { ApiService } from '../../services/api.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-productcaro',
   standalone: true,
@@ -52,7 +54,7 @@ export class ProductcaroComponent implements OnInit {
 
   @Input() products: any[] = [];
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private apiService: ApiService, private snackBar: MatSnackBar) { }
 
   openCart() {
     this.cartService.showCart();
@@ -72,6 +74,15 @@ export class ProductcaroComponent implements OnInit {
   }
 
   toggleWishlist(product: any): void {
-    // Implement wishlist functionality
+    this.apiService.addToWishlist(product.id).subscribe((data) => {
+      console.log(data);
+      this.snackBar.open('Product added to wishlist', 'Close', {
+        duration: 3000,
+        horizontalPosition: 'right',
+        verticalPosition: 'top',
+        panelClass: ['snackbar-container'],
+      });
+    });
   }
 }
+

@@ -6,7 +6,7 @@
                 <ng-template carouselSlide>
 
                     <div class="feature-card">
-                        <a [href]="'/category/' + item.link" class="text-decoration-none">
+                        <a [href]="'/' + slug + '/' + item.link" class="text-decoration-none">
                             <img [src]="isSubCategory ? imagePath.brand + item.image : imagePath.parentCategory + item.image" alt="" class="mx-auto rounded-circle">
                             <div class="feature-card-content">
                                 <h5>{{item.title | slice: 0:14

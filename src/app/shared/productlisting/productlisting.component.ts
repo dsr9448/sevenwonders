@@ -4,7 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { IMAGE_PATHS } from '../constants/api-paths';
 import { CartService } from '../../services/cartservices';
-
+import { ApiService } from '../../services/api.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-productlisting',
   standalone: true,
@@ -70,7 +71,7 @@ export class ProductlistingComponent implements OnInit {
       this.selectedRatings = this.selectedRatings.filter(r => r !== range);
     }
   }
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private apiService: ApiService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.productdata = this.productdata;
@@ -85,6 +86,15 @@ export class ProductlistingComponent implements OnInit {
   }
 
   toggleWishlist(product: any): void {
-    // Implement wishlist functionality
-  }
+    this.apiService.addToWishlist(product.id).subscribe((data) => {
+      console.log(data);
+      this.snackBar.open('Product added to wishlist', 'Close', {
+        duration: 3000,
+        horizontalPosition: 'right',
+        verticalPosition: 'top',
+        panelClass: ['snackbar-container'],
+      });
+    });
+  }// Implement wishlist functionality
+  
 }

@@ -47,7 +47,7 @@ export class ProductdetailsComponent implements OnInit {
   productDetails: any[] = [];
   productCarousel: any[] = [];
   selectedCurrency: string = 'AED';
-  deliveryMessage: any[] = [];
+  deliveryMessage: any;
   productcart: any[] = [];
   priceDetails: any[] = [
     {
@@ -66,10 +66,6 @@ export class ProductdetailsComponent implements OnInit {
   ];
   product: any[] = [
     {
-
-
-
-
       deliveryMessage: [
         {
           title: 'Easy Returns & Exchange',
@@ -87,6 +83,10 @@ export class ProductdetailsComponent implements OnInit {
           Image: '../../../assets/icons/products/contactless.svg'
         }
       ]
+
+
+
+
 
 
     }

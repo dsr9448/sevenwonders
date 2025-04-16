@@ -19,8 +19,8 @@
 
 
 
-<app-heading [title1]="'FILTER'" [title2]="'Your Preferences'" [iscenter]=true class="d-none d-md-block"></app-heading>
-<div class="custom-container newhead d-block d-md-none">
+<app-heading [title1]="'FILTER'" [title2]="'Your Preferences'" [iscenter]=true class="d-none d-md-block" *ngIf="categoryData.productsData.length != 0"></app-heading>
+<div class="custom-container newhead d-block d-md-none" *ngIf="categoryData.productsData.length != 0">
     <app-heading [title1]="'FILTER'" [title2]="'Your Preferences'" [buttonText]="'Filter'" [href]="'#'"
         class="d-block  d-md-none"></app-heading>
 </div>

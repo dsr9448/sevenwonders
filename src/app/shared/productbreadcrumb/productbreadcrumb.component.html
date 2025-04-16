@@ -1,8 +1,13 @@
 <div class="custom-container breadcrumb-container d-none d-md-flex">
     <div class="breadcrumb-content d-none d-md-flex">
         <a class="ps-0 text-decoration-none" href="/">Home <i class="fa-solid fa-chevron-right"></i></a>
-        <a class="ps-0 text-decoration-none"*ngIf="category !== ''" href="/">{{category}} <i *ngIf="subcategory !== ''" class="fa-solid fa-chevron-right"></i></a>
-        <a class="ps-0 text-decoration-none"*ngIf="subcategory !== ''" routerLink="/">{{subcategory}} <i *ngIf="productName !== ''" class="fa-solid fa-chevron-right"></i></a>
-        <a class="ps-0 text-decoration-none active" >{{productName}}</a>
+        <a class="ps-0 text-decoration-none" *ngIf="category !== ''"
+            routerLink="/category/{{category.toLowerCase()}}">{{category}} <i *ngIf="subcategory !== ''"
+                class="fa-solid fa-chevron-right"></i></a>
+        <a class="ps-0 text-decoration-none" *ngIf="subcategory !== ''"
+            routerLink="/subcategory/{{subcategory.toLowerCase()}}">{{subcategory}} <i *ngIf="productName !== ''"
+                class="fa-solid fa-chevron-right"></i></a>
+        <a class="ps-0 text-decoration-none active">{{productName }}</a>
     </div>
 </div>
+<p>{{productName}}</p>

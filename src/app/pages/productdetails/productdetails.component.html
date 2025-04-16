@@ -1,20 +1,25 @@
-<app-productbreadcrumb [category]="'category'" [subcategory]="productDetails[0]?.brand"
+<app-productbreadcrumb [category]="productDetails[0]?.categoryname" [subcategory]="productDetails[0]?.brand"
     [productName]="productDetails[0]?.productName"></app-productbreadcrumb>
 <app-category [categoryData]="categoryData" [isProductDetails]="true"></app-category>
 <div class="custom-container product-details-container">
     <div class="product-grid align-items-start">
         <div class="product-image-carousel align-items-center">
             <div class="thumbnail-images">
-                <div class="thumbnail" *ngFor="let i of [1,2,3,4]" (mouseenter)="changeCarouselSlide(i-1)"
-                    (mouseleave)="resetImage()">
-                    <img [src]="imagePath.productthumbnail+ productDetails[0]?.productimages[0]['image'+i]" alt="Product Thumbnail">
-                </div>
+                <ng-container *ngFor="let i of [1,2,3,4]">
+                    <div class="thumbnail">
+
+                        <img [src]="imagePath.productthumbnail + productDetails[0]?.productimages[i]['image']"
+                            alt="Product Thumbnail">
+                    </div>
+
+                </ng-container>
             </div>
             <div class="main-image">
                 <owl-carousel-o [options]="customOptions" #owlCar>
                     <ng-container *ngFor="let i of [1,2,3,4]">
                         <ng-template carouselSlide>
-                            <img src="{{imagePath.productthumbnail+ productDetails[0]?.productimages[0]['image'+i]}}" alt="Product Image">
+                            <img [src]="imagePath.productthumbnail+ productDetails[0]?.productimages[i]['image']"
+                                alt="Product Image">
                         </ng-template>
                     </ng-container>
                 </owl-carousel-o>
@@ -28,10 +33,11 @@
                     <p class="model">model: {{productDetails[0]?.model}}</p>
                 </div>
                 <div class="product-price d-flex align-items-center">
-                    <p class="price">{{selectedCurrency}} {{productDetails[0]?.sprice=='0' ? productDetails[0]?.price : productDetails[0]?.sprice}}</p>
-                    <p *ngIf="productDetails[0]?.sprice!=='0'"  class="sprice">{{selectedCurrency}}
+                    <p class="price">{{selectedCurrency}} {{
+                        productDetails[0]?.sprice}}</p>
+                    <p class="sprice">{{selectedCurrency}}
                         {{productDetails[0]?.price}}</p>
-                    <p *ngIf="productDetails[0]?.sprice!=='0'"  class="discount">{{((productDetails[0]?.price -
+                    <p class="discount">{{((productDetails[0]?.price -
                         productDetails[0]?.sprice) / productDetails[0]?.price) * 100 | number:'1.0-0'}}% off</p>
                 </div>
                 <div class="product-middle">
@@ -88,7 +94,7 @@
                         </div>
                     </div>
                 </div>
-             
+
             </div>
             <div class="product-row">
                 <div class="product-storage" *ngIf="productDetails[0]?.variants.ram.length > 0">
@@ -116,8 +122,10 @@
                 </a>
             </div>
             <div class="action-button">
-                <button *ngIf="productDetails[0]?.quantity > 0 " (click)="addToCart()" ><img src="../../../assets/icons/cart.svg" width="16" height="16" alt="">Add to Cart</button>
-                <button *ngIf="productDetails[0]?.quantity == 0" class="disabled-button out-of-stock" >Out of Stock</button>
+                <button *ngIf="productDetails[0]?.quantity > 0 " (click)="addToCart()"><img
+                        src="../../../assets/icons/cart.svg" width="16" height="16" alt="">Add to Cart</button>
+                <button *ngIf="productDetails[0]?.quantity == 0" class="disabled-button out-of-stock">Out of
+                    Stock</button>
                 <button><i class="fa-regular fa-heart"></i> Wishlist</button>
             </div>
             <div class="price-details">
@@ -321,7 +329,8 @@
             <div class="customer-reviews ">
                 <div class="review-card" *ngFor="let review of productPage[0].customerReviews">
                     <div class="reviewer-info">
-                        <img [src]="review.reviewerImage || '../../../assets/images/productsdetails/customer.png'" [alt]="review.reviewerName">
+                        <img [src]="review.reviewerImage || '../../../assets/images/productsdetails/customer.png'"
+                            [alt]="review.reviewerName">
                         <div>
                             <h5>{{review.reviewerName}}</h5>
                             <p>Reviewed on {{review.reviewDate}}</p>

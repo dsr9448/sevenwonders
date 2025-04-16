@@ -1,4 +1,4 @@
-<div class="home-caro">
+<div class="home-caro ">
   <owl-carousel-o [options]="carouselOptions">
     <ng-container *ngFor="let item of items">
       <ng-template carouselSlide>
@@ -9,11 +9,9 @@
   <div class="custom-container breadcrumb-container mx-auto">
 
     <div class="breadcrumb-content d-none d-md-flex">
-      <a class="ps-0 text-decoration-none" href="/" >Home <i class="fa-solid fa-chevron-right"></i></a>
-      <a class="ps-0 text-decoration-none {{subcategory== '' ? 'active' : ''}}" routerLink="/">{{category}} <i *ngIf="subcategory !== ''" class="fa-solid fa-chevron-right"></i></a>
+      <a class="ps-0 text-decoration-none" href="/">Home <i class="fa-solid fa-chevron-right"></i></a>
+      <a class="ps-0 text-decoration-none {{subcategory== '' ? 'active' : ''}}" routerLink="/">{{category}} <i
+          *ngIf="subcategory !== ''" class="fa-solid fa-chevron-right"></i></a>
       <a *ngIf="subcategory !== ''" class="ps-0 text-decoration-none active" routerLink="/">{{subcategory}}</a>
     </div>
   </div>
-</div>
-
-

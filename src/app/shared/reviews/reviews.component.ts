@@ -12,63 +12,6 @@ import { IMAGE_PATHS } from '../constants/api-paths';
 export class ReviewsComponent implements OnInit {
   @Input() reviews: any;
   imagePath = IMAGE_PATHS.reviews;
-  // reviews: any = [
-  //   {
-  //     name: "John Smith",
-  //     rating: "5",
-  //     comment: "Excellent service! The aquarium products were top-notch and delivery was quick. Highly recommend Sea Wonders for all marine enthusiasts.",
-  //     image: 'https://placehold.co/400x400',
-  //   },
-  //   {
-  //     name: "Sarah Johnson",
-  //     rating: "4",
-  //     comment: "Great selection of marine life and equipment. Staff was very knowledgeable and helpful. Would definitely shop here again.",
-  //     image: 'https://placehold.co/400x400',
-  //   },
-  //   {
-  //     name: "Mike Anderson",
-  //     rating: "5",
-  //     comment: "Outstanding experience with Sea Wonders. Their expertise in marine life is impressive. The fish I purchased are healthy and thriving.",
-  //     image: 'https://placehold.co/400x400',
-  //   },
-  //   {
-  //     name: "Emily Parker",
-  //     rating: "3",
-  //     comment: "Best aquarium shop in the area! Their customer service is exceptional and they have a wide variety of products.",
-  //     image: 'https://placehold.co/400x400',
-  //   },
-  //   {
-  //     name: "David Wilson",
-  //     rating: "4",
-  //     comment: "Very satisfied with my purchase. The team was professional and provided great advice for setting up my new aquarium.",
-  //     image: 'https://placehold.co/400x400',
-  //   },
-  //   {
-  //     name: "Sarah Johnson",
-  //     rating: "4",
-  //     comment: "Great selection of marine life and equipment. Staff was very knowledgeable and helpful. Would definitely shop here again.",
-  //     image: 'https://placehold.co/400x400',
-  //   },
-  //   {
-  //     name: "Mike Anderson",
-  //     rating: "5",
-  //     comment: "Outstanding experience with Sea Wonders. Their expertise in marine life is impressive. The fish I purchased are healthy and thriving.",
-  //     image: 'https://placehold.co/400x400',
-  //   },
-  //   {
-  //     name: "Emily Parker",
-  //     rating: "3",
-  //     comment: "Best aquarium shop in the area! Their customer service is exceptional and they have a wide variety of products.",
-  //     image: 'https://placehold.co/400x400',
-  //   },
-  //   {
-  //     name: "David Wilson",
-  //     rating: "4",
-  //     comment: "Very satisfied with my purchase. The team was professional and provided great advice for setting up my new aquarium.",
-  //     image: 'https://placehold.co/400x400',
-  //   }
-  // ];
-
   averageRating = 4.9;
   totalReviews = 598;
 

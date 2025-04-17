@@ -1,30 +1,31 @@
+<!-- <p>{{userData | json}}</p> -->
 <app-productbreadcrumb [category]="productDetails[0]?.categoryname" [subcategory]="productDetails[0]?.brand"
     [productName]="productDetails[0]?.productName"></app-productbreadcrumb>
-<app-category [categoryData]="categoryData" [isProductDetails]="true"></app-category>
+<app-category [categoryData]="categoryData" slug="category" [isProductDetails]="true"></app-category>
+
 <div class="custom-container product-details-container">
+
     <div class="product-grid align-items-start">
-        <div class="product-image-carousel align-items-center">
+        <div class="product-image-carousel align-items-center"
+            *ngIf="productDetails[0]?.productimages[0].image[0]!=null">
             <div class="thumbnail-images">
-                <ng-container *ngFor="let i of [1,2,3,4]">
+                <ng-container *ngFor="let image of productDetails[0]?.productimages">
                     <div class="thumbnail">
-
-                        <img [src]="imagePath.productthumbnail + productDetails[0]?.productimages[i]['image']"
-                            alt="Product Thumbnail">
+                        <img [src]="imagePath.productthumbnail + image.image" alt="">
                     </div>
-
                 </ng-container>
             </div>
             <div class="main-image">
                 <owl-carousel-o [options]="customOptions" #owlCar>
-                    <ng-container *ngFor="let i of [1,2,3,4]">
+                    <ng-container *ngFor="let image of productDetails[0]?.productimages">
                         <ng-template carouselSlide>
-                            <img [src]="imagePath.productthumbnail+ productDetails[0]?.productimages[i]['image']"
-                                alt="Product Image">
+                            <img [src]="imagePath.productthumbnail+ image.image" alt="Product Image">
                         </ng-template>
                     </ng-container>
                 </owl-carousel-o>
             </div>
         </div>
+
         <div class="product-grid-item">
             <div class="product-level1">
                 <div class="product-grid-item-content">
@@ -34,8 +35,8 @@
                 </div>
                 <div class="product-price d-flex align-items-center">
                     <p class="price">{{selectedCurrency}} {{
-                        productDetails[0]?.sprice}}</p>
-                    <p class="sprice">{{selectedCurrency}}
+                        productDetails[0]?.sprice!='' ? productDetails[0]?.sprice : productDetails[0]?.price}}</p>
+                    <p *ngIf="productDetails[0]?.sprice!=='0'" class="sprice">{{selectedCurrency}}
                         {{productDetails[0]?.price}}</p>
                     <p class="discount">{{((productDetails[0]?.price -
                         productDetails[0]?.sprice) / productDetails[0]?.price) * 100 | number:'1.0-0'}}% off</p>
@@ -70,21 +71,20 @@
                     </div>
                 </div>
             </div>
-
-            <div class="product-color" *ngIf="productDetails[0]?.variants.color.length > 0">
-                <p>Color: {{productDetails[0]?.variants.color[0]?.color}}</p>
+            <div class="product-color" *ngIf="productDetails[0]?.variants2.color.length > 0">
+                <p>Color: {{productDetails[0]?.variants2.color[0]?.color}}</p>
                 <div class="color-container">
-                    <div class="color-box" *ngFor="let color of productDetails[0]?.variants.color">
+                    <div class="color-box" *ngFor="let color of productDetails[0]?.variants2.color">
                         <img [src]="imagePath.productthumbnail+color.image" alt="{{color.color}}">
                     </div>
                 </div>
             </div>
             <div class="product-row">
-                <div class="product-storage" *ngIf="productDetails[0]?.variants.storage.length > 0">
+                <div class="product-storage" *ngIf="productDetails[0]?.variants2.storage.length > 0">
                     <div class="storage-container">
                         <p>Storage</p>
                         <div class="storage-options">
-                            <div class="storage-option" *ngFor="let storage of productDetails[0]?.variants.storage">
+                            <div class="storage-option" *ngFor="let storage of productDetails[0]?.variants2.storage">
                                 <input class="storage-input" type="radio" name="storageOptions"
                                     [value]="storage.storage" id="{{storage.storage}}">
                                 <label class="storage-label" [for]="storage.storage">
@@ -94,14 +94,13 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             <div class="product-row">
-                <div class="product-storage" *ngIf="productDetails[0]?.variants.ram.length > 0">
+                <div class="product-storage" *ngIf="productDetails[0]?.variants2.ram.length > 0">
                     <div class="storage-container">
                         <p>Ram</p>
                         <div class="storage-options">
-                            <div class="storage-option" *ngFor="let ram of productDetails[0]?.variants.ram">
+                            <div class="storage-option" *ngFor="let ram of productDetails[0]?.variants2.ram">
                                 <input class="storage-input" type="radio" name="ramOptions" [value]="ram.ram"
                                     id="{{ram.ram}}">
                                 <label class="storage-label" [for]="ram.ram">
@@ -122,11 +121,14 @@
                 </a>
             </div>
             <div class="action-button">
-                <button *ngIf="productDetails[0]?.quantity > 0 " (click)="addToCart()"><img
-                        src="../../../assets/icons/cart.svg" width="16" height="16" alt="">Add to Cart</button>
-                <button *ngIf="productDetails[0]?.quantity == 0" class="disabled-button out-of-stock">Out of
+                <button *ngIf="productDetails[0]?.quantity > 0 && productDetails[0]?.quantity != null"
+                    (click)="addToCart()"><img src="../../../assets/icons/cart.svg" width="16" height="16" alt="">Add to
+                    Cart</button>
+                <button *ngIf="productDetails[0]?.quantity == 0 || productDetails[0]?.quantity == null"
+                    class="disabled-button out-of-stock">Out of
                     Stock</button>
-                <button><i class="fa-regular fa-heart"></i> Wishlist</button>
+                <button (click)="toggleWishlist(productDetails[0])"><i class="fa-regular fa-heart"></i>
+                    Wishlist</button>
             </div>
             <div class="price-details">
                 <div class="price-detail" *ngFor="let priceDetail of priceDetails">
@@ -134,22 +136,28 @@
                     <p>{{priceDetail.title}}</p>
                 </div>
             </div>
-            <div class="frequently-bought">
+            <div class="frequently-bought" *ngIf=" productDetails[0]?.frequentlyBought[0].length > 0 ">
                 <h6>Frequently <span>Bought Together</span></h6>
                 <div class="frequently-bought-items">
                     <div class="frequently-bought-item"
-                        *ngFor="let frequentlyBought of productDetails[0]?.frequentlyBought">
-                        <img [src]="imagePath.shopbycat+ frequentlyBought.image" alt="">
-                        <p class="fproduct-name">{{frequentlyBought.title.slice(0, 20)}}</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <p class="fproduct-price">{{selectedCurrency}} {{frequentlyBought.price}}</p>
-                            <p class="fproduct-rating">{{frequentlyBought.rating}} <i class="fa-solid fa-star"></i></p>
+                        *ngFor="let frequentlyBought of productDetails[0]?.frequentlyBought[0]">
+                        <a [routerLink]="'/product/' + frequentlyBought.link" class="text-decoration-none">
+                            <img [src]="imagePath.shopbycat+ frequentlyBought.image" alt="">
+                            <p class="fproduct-name">{{frequentlyBought.title.length>15 ?
+                                frequentlyBought.title.slice(0,
+                                15)+'...' : frequentlyBought.title }}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <p class="fproduct-price">{{selectedCurrency}} {{frequentlyBought.price}}</p>
+                                <p class="fproduct-rating">{{frequentlyBought.rating}} <i class="fa-solid fa-star"></i>
+                                </p>
 
-                        </div>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="product-grid-item2">
             <div class="delvery-message-box">
                 <div class="delivery-message d-flex align-items-center" *ngFor="let message of deliveryMessage">
@@ -193,21 +201,28 @@
                 </div>
                 <img src="../../../assets/icons/products/Info.svg" alt="">
             </div>
-            <div class="other-products">
-                <div class="other-header">
-                    <img src="{{otherproduct[0]?.logo}}" alt="">
-                    <h6 class="mb-0">{{otherproduct[0]?.title}}</h6>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </div>
-                <div class="other-product-image">
-                    <img src="{{otherproduct[0]?.image}}" class="mx-auto" alt="">
-                    <p class="desc">{{otherproduct[0]?.description}}</p>
-                    <p class="price">{{otherproduct[0]?.price}}</p>
-                </div>
-            </div>
+            <ng-container *ngIf="productDetails[0]?.otherproduct !=0">
+
+                <a [routerLink]="'/product/' + productDetails[0]?.otherproduct[0]?.link" class="text-decoration-none">
+                    <div class="other-products">
+                        <div class="other-header">
+                            <img [src]="imagePath.shopbycat + productDetails[0]?.otherproduct[0]?.logo" alt="">
+                            <h6 class="mb-0">{{ productDetails[0]?.otherproduct[0]?.title.length>25 ?
+                                productDetails[0]?.otherproduct[0]?.title.substring(0, 25) + '...' :
+                                productDetails[0]?.otherproduct[0]?.title}}</h6>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                        <div class="other-product-image">
+                            <img [src]="imagePath.shopbycat + productDetails[0]?.otherproduct[0]?.image" class="mx-auto"
+                                alt="">
+                            <p class="desc">{{productDetails[0]?.otherproduct[0]?.description}}</p>
+                            <p class="price"> {{selectedCurrency}} {{productDetails[0]?.otherproduct[0]?.price}}</p>
+                        </div>
+                    </div>
+                </a>
+            </ng-container>
             <img src="{{productDetails[0]?.banner}}" class="product-banner" alt="">
         </div>
-
     </div>
 
     <div class="more-about-product">
@@ -254,7 +269,7 @@
         <div class="product-images" [ngClass]="{'expanded': showAllImages}"
             *ngIf="productDetails[0].productsImages.length!=0">
             <ng-container *ngFor="let item of productDetails[0].productsImages">
-                <img [src]="imagePath.productthumbnail+ item.image" alt="" class="img-fluid">
+                <img [src]="imagePath.featured+ item.image || 'https://placehold.co/1240x600'" alt="" class="img-fluid">
             </ng-container>
             <button class="{{ showAllImages ? 'show-more-btn':'show-less-btn'}}" (click)="toggleImages()">
                 <div>
@@ -266,94 +281,109 @@
 
     </div>
 </div>
-<div class="product-reviews custom-container ">
-    <div class=" ms-0 d-none d-md-block">
-        <app-heading title1="Customer's " title2="REVIEWS" [isproduct]=true></app-heading>
-    </div>
-    <div class="product-review-container">
-        <div class="review-summary d-none d-md-flex">
-            <div class="total-reviews">
-                <p class="mb-0">Total Reviews</p>
-                <div>
-                    <h3>{{productPage[0]?.totalReviews | number}}+</h3>
-                    <p class="mb-0 last-child">Positive Reviews</p>
-                </div>
-            </div>
-            <div class="total-reviews">
-                <p class="mb-0">Product Rating</p>
-                <div class="star-rating">
-                    <div *ngFor="let i of [1,2,3,4,5]">
-                        <i class="fa-solid fa-star" [class.filled]="i <= productDetails[0]?.rating"></i>
-                    </div>
-                    <p class="mb-0 rating-value">{{productDetails[0]?.rating}}</p>
-                </div>
-                <p class="mb-0 last-child">{{productDetails[0]?.ratingCount}} Ratings </p>
-            </div>
-            <div class="rating-breakdown">
-                <h4>Product Rating</h4>
-                <div class="rating-stats">
-                    <div class="rating-row" *ngFor="let rating of productPage[0].ratingBreakdown">
-                        <div class="rating-row-text">
 
-                            <span>{{rating.stars}} <i class="fa-solid fa-star"></i></span>
-                            <div class="rating-bar">
-                                <div class="rating-fill" [style.width.%]="rating.percentage"></div>
-                            </div>
-                        </div>
-                        <span>{{rating.percentage}}%</span>
-                    </div>
-                </div>
-            </div>
-            <button class="write-review-btn" (click)="writeReview()">
-                <i class="fa-regular fa-pen-to-square"></i> Write a Review
-            </button>
+<ng-container *ngIf="productPage[0]?.totalReviews > 0 else noReviews">
+    <div class="product-reviews custom-container ">
+        <div class=" ms-0 d-none d-md-block">
+            <app-heading title1="Customer's " title2="REVIEWS" [isproduct]=true></app-heading>
         </div>
-
-        <div class="cusomter-review ">
-            <div class="reviews-with-images">
-                <h4>Reviews with images</h4>
-                <owl-carousel-o [options]="customOptions1" #owlCar1>
-                    <ng-container *ngFor="let image of reviewImages">
-                        <ng-template carouselSlide>
-                            <img [src]="image.imageUrl" [alt]="'Review Image ' + image.id">
-                        </ng-template>
-                    </ng-container>
-                </owl-carousel-o>
-                <!-- <div class="review-images-grid">
-                    <div class="review-image" *ngFor="let image of reviewImages">
-                        <img [src]="image.imageUrl" [alt]="'Review Image ' + image.id">
+        <div class="product-review-container">
+            <div class="review-summary d-none d-md-flex">
+                <div class="total-reviews">
+                    <p class="mb-0">Total Reviews</p>
+                    <div>
+                        <h3>{{productPage[0]?.totalReviews | number}}+</h3>
+                        <p class="mb-0 last-child">Positive Reviews</p>
                     </div>
+                </div>
+                <div class="total-reviews">
+                    <p class="mb-0">Product Rating</p>
+                    <div class="star-rating">
+                        <div *ngFor="let i of [1,2,3,4,5]">
+                            <i class="fa-solid fa-star" [class.filled]="i <= productDetails[0]?.rating"></i>
+                        </div>
+                        <p class="mb-0 rating-value">{{productDetails[0]?.rating}}</p>
+                    </div>
+                    <p class="mb-0 last-child">{{productDetails[0]?.ratingCount}} Ratings </p>
+                </div>
+                <div class="rating-breakdown">
+                    <h4>Product Rating</h4>
+                    <div class="rating-stats">
+                        <div class="rating-row" *ngFor="let rating of productPage[0].ratingBreakdown">
+                            <div class="rating-row-text">
+
+                                <span>{{rating.stars}} <i class="fa-solid fa-star"></i></span>
+                                <div class="rating-bar">
+                                    <div class="rating-fill" [style.width.%]="rating.percentage"></div>
+                                </div>
+                            </div>
+                            <span>{{rating.percentage}}%</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="write-review-btn" (click)="openReviewModal()">
+                    <i class="fa-regular fa-pen-to-square"></i> Write a Review
+                </button>
+            </div>
+            <div class="cusomter-review ">
+                <!-- <div class="reviews-with-images">
+                    <h4>Reviews with images</h4>
+                    <owl-carousel-o [options]="customOptions1" #owlCar1>
+                        <ng-container *ngFor="let image of reviewImages">
+                            <ng-template carouselSlide>
+                                <img [src]="image.imageUrl" [alt]="'Review Image ' + image.id">
+                            </ng-template>
+                        </ng-container>
+                    </owl-carousel-o>
+                
                 </div> -->
-            </div>
 
-            <div class="customer-reviews ">
-                <div class="review-card" *ngFor="let review of productPage[0].customerReviews">
-                    <div class="reviewer-info">
-                        <img [src]="review.reviewerImage || '../../../assets/images/productsdetails/customer.png'"
-                            [alt]="review.reviewerName">
-                        <div>
-                            <h5>{{review.reviewerName}}</h5>
-                            <p>Reviewed on {{review.reviewDate}}</p>
-                        </div>
-                    </div>
-
-                    <div class="review-rating">
-                        <h4>{{review.title}}</h4>
-                        <div class="star-container">
-                            <div class="stars">
-                                <i class="fa-solid fa-star" *ngFor="let star of [1,2,3,4,5]"
-                                    [class.filled]="star <= review.rating"
-                                    [class.half-filled]="star - 0.5 <= review.rating && star > review.rating">
-                                </i>
+                <div class="customer-reviews ">
+                    <div class="review-card" *ngFor="let review of productPage[0].customerReviews">
+                        <div class="reviewer-info">
+                            <img [src]="review.reviewerImage || 'https://placehold.co/50x50'"
+                                [alt]="review.reviewerName">
+                            <div>
+                                <h5>{{review.reviewerName}}</h5>
+                                <p>Reviewed on {{review.reviewDate}}</p>
                             </div>
-                            <span>{{review.rating}}</span>
                         </div>
+
+                        <div class="review-rating">
+                            <h4>{{review.title}}</h4>
+                            <div class="star-container">
+                                <div class="stars">
+                                    <i class="fa-solid fa-star" *ngFor="let star of [1,2,3,4,5]"
+                                        [class.filled]="star <= review.rating"
+                                        [class.half-filled]="star - 0.5 <= review.rating && star > review.rating">
+                                    </i>
+                                </div>
+                                <span>{{review.rating}}</span>
+                            </div>
+                        </div>
+                        <p>{{review.content}}</p>
                     </div>
-                    <p *ngFor="let paragraph of review.content">{{paragraph}}</p>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<app-productcaro [title1]="'RELATED '" [title2]="'Products'" [href]="'#'" [buttonText]="'View All'"
-    [products]="productCarousel"></app-productcaro>
+</ng-container>
+<ng-template #noReviews>
+    <div class="product-reviews custom-container ">
+        <div class="row">
+            <div class="col-12">
+                <p>Be the first to review this product</p>
+                <button class="write-review-btn" (click)="openReviewModal()">
+                    <i class="fa-regular fa-pen-to-square"></i> Write a Review
+                </button>
+
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+
+<ng-container *ngIf="productCarousel.length > 0">
+    <app-productcaro [title1]="'RELATED '" [title2]="'Products'" [href]="'#'" [buttonText]="'View All'"
+        [products]="productCarousel"></app-productcaro>
+</ng-container>

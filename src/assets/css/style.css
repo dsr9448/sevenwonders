@@ -520,12 +520,13 @@ body::-webkit-scrollbar-thumb {
     height: 40px;
     border-radius: 4px;
     padding: 6px 10px;
-    border: 1px solid var(--primary-color);
+    border: 1px solid var(--primary-color) !important;
     font-family: var(--body-font-family);
     font-weight: 600;
     font-size: 16px;
-    color: var(--primary-color);
+    color: var(--primary-color) !important;
     transition: all 0.3s ease;
+    box-shadow: none !important;
 }
 
 .signin-form-button button img {
@@ -536,7 +537,7 @@ body::-webkit-scrollbar-thumb {
 
 .signin-form-button button:hover {
     background-color: var(--primary-color);
-    color: var(--white-color);
+    color: var(--white-color) !important;
 }
 
 .signin-form-content, .signin-form-content form {
@@ -571,7 +572,7 @@ body::-webkit-scrollbar-thumb {
     box-shadow: none !important;
 }
 
-.signin-form-content form a {
+.signin-form-content form a , .signin-form-content form button[type="submit"] {
     padding: 10px 20px;
     border-radius: 4px;
     font-family: var(--heading-font-family);
@@ -583,18 +584,18 @@ body::-webkit-scrollbar-thumb {
     cursor: pointer;
 }
 
-.signin-form-content form a[type="submit"] {
+.signin-form-content form button[type="submit"]  {
     background: var(--primary-color);
     color: var(--white-color);
 }
 
-.signin-form-content form a[type="submit"]:hover {
+.signin-form-content form button[type="submit"]:hover {
     background: var(--sale-color);
     color: var(--white-color);
     border-color: var(--sale-color);
 }
 
-.signin-form-content form a {
+.signin-form-content form a , .signin-form-content form button{
     border: 1px solid var(--primary-color);
     color: var(--primary-color);
 }
@@ -727,4 +728,30 @@ body::-webkit-scrollbar-thumb {
     content: "\f004"; /* Unicode for fa-solid fa-heart */
     font-family: "Font Awesome 5 Free";
     font-weight: 900; /* Solid style */
+}
+.mat-mdc-form-field-infix{
+    padding: 0px !important;
+    margin: 0px !important;
+}
+.mat-mdc-form-field-infix{
+    padding: 0px !important;
+    margin: 0px !important;
+}
+.mat-mdc-form-field-infix{
+    padding: 0px !important;
+    margin: 0px !important;
+}
+.mat-mdc-form-field{
+    margin: 0px !important;
+    padding: 0px !important;
+}
+.mat-mdc-form-field-subscript-wrapper.mat-mdc-form-field-bottom-align {
+    display: none !important;
+}
+.mat-mdc-form-field-infix {
+    display: flex !important;
+    align-items: center !important;
+}
+.mat-mdc-dialog-surface.mdc-dialog__surface {
+    border-radius: 12px !important;
 }

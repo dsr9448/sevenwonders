@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductbreadcrumbComponent } from "../../shared/productbreadcrumb/productbreadcrumb.component";
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { ApiService } from '../../services/api.service';
 import { IMAGE_PATHS } from '../../shared/constants/api-paths';
 import { CartService } from '../../services/cartservices';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-wishlist',
   imports: [ProductbreadcrumbComponent, CommonModule, RouterModule],
@@ -14,12 +15,17 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class WishlistComponent implements OnInit {
   imagePath = IMAGE_PATHS.shopbycat;
-  constructor(private apiService: ApiService, private cartService: CartService, private snackBar: MatSnackBar) { }
+  constructor(private apiService: ApiService, private cartService: CartService, private snackBar: MatSnackBar, private authService: AuthService, private router: Router) { }
   wishlistData: any;
   ngOnInit(): void {
-    this.apiService.getWishlistData().subscribe((data) => {
-      this.wishlistData = data;
-    });
+    const userData = this.authService.getUserData();
+    if (userData) {
+      this.apiService.getWishlistData().subscribe((data) => {
+        this.wishlistData = data;
+      });
+    } else {
+      this.router.navigate(['/signin']);
+    }
   } addToCart(product: any) {
     this.cartService.addToCart(product);
     this.cartService.showCart();

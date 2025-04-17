@@ -1,4 +1,6 @@
-<div class="main-signin-container ">
+
+
+<div class="main-signin-container">
     <div class="background-container">
         <div class="background-scroll">
             <img src="../../../assets/images/signin/1.png" alt="Background 1">
@@ -12,24 +14,37 @@
             <div class="signin-form">
                 <h1 class="text-center">Sign In <span>to your account</span></h1>
                 <div class="d-flex justify-content-center signin-form-button">
-                    <button><img src="../../../assets/icons/facebook.svg" alt=""> Facebook</button>
-                    <button><img src="../../../assets/icons/google.svg" alt=""> Google</button>
+                    <button mat-raised-button color="primary"><img src="../../../assets/icons/facebook.svg" alt=""> Facebook</button>
+                    <button mat-raised-button color="primary"><img src="../../../assets/icons/google.svg" alt=""> Google</button>
                 </div>
             </div>
             <div class="signin-form-content">
                 <p class="mb-0">Login With Email ID</p>
-                <form method="post" action="">
-    
-                    <input type="email" class="form-control" id="email" placeholder="Email id">
-                    <input type="password" class="form-control" id="password" placeholder="Password">
-                    <a type="submit">Sign In</a>
-                    <a [routerLink]="['/signup']"  class="text-decoration-none"  >New To Seven Wonders ? Sign Up</a>
-   
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+         <!-- <div> -->
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" formControlName="email" placeholder="Email id">
+                <mat-error *ngIf="loginForm.get('email')?.hasError('required')">Email is required</mat-error>
+                <mat-error  *ngIf="loginForm.get('email')?.hasError('email')">Please enter a valid email</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100 d-flex align-items-center">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="password" placeholder="Password">
+                <span class="password-toggle"  (click)="togglePasswordVisibility()">
+                    <i class="fas" [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
+                </span>
+                <mat-error *ngIf="loginForm.get('password')?.hasError('required')">Password is required</mat-error>
+            </mat-form-field>
+         <!-- </div> -->
+
+                    <button type="submit" [disabled]="!loginForm.valid" class="w-100">Sign In</button>
+                    <a [routerLink]="['/signup']" target="_blank" class="text-decoration-none">New To Seven Wonders ? Sign Up</a>
                 </form>
-                <a [routerLink]="['/forgetpassword']" class="text-center text-decoration-none forgot-password">Forgot Password?</a>
+                <a href="/forgetpassword" class="text-center text-decoration-none forgot-password">Forgot Password?</a>
             </div>
         </div>
     </div>
-    
 </div>
 

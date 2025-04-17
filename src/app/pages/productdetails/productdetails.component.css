@@ -488,15 +488,16 @@
     color: var(--primary-color);
     line-clamp: 1;
     text-align: start !important;
-    /* -webkit-line-clamp: 1;
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    text-overflow: ellipsis; */
+    text-overflow: ellipsis;
 }
 
 .fproduct-price {
     font-weight: 700;
     font-size: 12px;
+    color: var(--primary-color);
 }
 
 .fproduct-rating {
@@ -976,6 +977,7 @@
 
 .customer-reviews {
     width: 996px;
+    min-height: 479px;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -985,7 +987,7 @@
 .review-card {
     padding: 12px;
     border-bottom: 1px solid var(--border-color);
-    height: 201px;
+    min-height: 100px;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -1155,7 +1157,6 @@
     color: var(--review-text-color);
     font-weight: 400;
     font-size: 14px;
-    line-height: 100%;
     letter-spacing: 0%;
     margin-bottom: 0px;
 }
@@ -1197,7 +1198,8 @@
     line-height: 150%;
     letter-spacing: 0%;
     color: var(--primary-color);
-
+    line-clamp: 1;
+    -webkit-line-clamp: 1;
 }
 
 .other-products .other-header i {
@@ -1343,4 +1345,22 @@
         overflow-x: hidden;
     }
 
+}
+
+.review-modal-container {
+  .mat-dialog-container {
+    padding: 0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+}
+
+.snackbar-success {
+  background-color: #4caf50;
+  color: white;
+}
+
+.snackbar-error {
+  background-color: #f44336;
+  color: white;
 }

@@ -1,0 +1,33 @@
+::ng-deep .snackbar-error {
+    background-color: #f44336;
+    color: white;
+}
+
+::ng-deep .snackbar-container {
+    background-color: #4caf50;
+    color: white;
+}
+
+.mat-mdc-form-field {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.signin-form-content form {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.forgot-password {
+    cursor: pointer;
+    color: var(--primary-color);
+    margin-top: 1rem;
+    display: block;
+
+}
+
+.forgot-password:hover {
+    text-decoration: underline !important;
+}
+

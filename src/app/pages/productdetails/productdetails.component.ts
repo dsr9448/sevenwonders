@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ProductbreadcrumbComponent } from '../../shared/productbreadcrumb/productbreadcrumb.component';
 import { CategoryComponent } from "../../shared/category/category.component";
@@ -11,7 +11,10 @@ import { HeadingComponent } from "../../shared/heading/heading.component";
 import { IMAGE_PATHS } from '../../shared/constants/api-paths';
 import { CartService } from '../../services/cartservices';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { ReviewModalComponent } from '../../shared/review-modal/review-modal.component';
 
 interface RatingBreakdown {
   stars: number;
@@ -35,7 +38,7 @@ interface CustomerReview {
 
 @Component({
   selector: 'app-productdetails',
-  imports: [CommonModule, ProductbreadcrumbComponent, CategoryComponent, ProductcaroComponent, CarouselModule, HeadingComponent],
+  imports: [CommonModule, ProductbreadcrumbComponent, CategoryComponent, ProductcaroComponent, CarouselModule, HeadingComponent,RouterModule],
   templateUrl: './productdetails.component.html',
   styleUrl: './productdetails.component.css'
 })
@@ -43,12 +46,14 @@ export class ProductdetailsComponent implements OnInit {
   imagePath = IMAGE_PATHS;
   productId!: string;
   productPage: any;
-  categoryData: any[] = [];
-  productDetails: any[] = [];
-  productCarousel: any[] = [];
+  categoryData: any;
+  productDetails: any;
+  productCarousel: any;
   selectedCurrency: string = 'AED';
   deliveryMessage: any;
-  productcart: any[] = [];
+  productcart: any;
+  userData : any;
+  isReviewModalOpen: boolean = false;
   priceDetails: any[] = [
     {
       Image: '../../../assets/icons/products/Money.svg',
@@ -155,33 +160,7 @@ export class ProductdetailsComponent implements OnInit {
     { id: 6, imageUrl: '../../../assets/images/productsdetails/review-1.png' }
   ];
 
-  customerReviews: CustomerReview[] = [
-    {
-      id: 1,
-      reviewerName: 'Rukku Sumayya',
-      reviewDate: '19th Jan',
-      rating: 4.2,
-      title: 'Great value for money',
-      content: [
-        'I recently purchased the Samsung Galaxy M05 for just under INR 6500, and I must say, I am very impressed! For the price, this phone is an absolute steal and offers incredible value for money.',
-        'The large display is a real highlight, providing a great viewing experience for day-to-day tasks. Despite being a budget phone, it has a premium feel in hand, which is a pleasant surprise. The build quality is solid, and it doesn\'t feel cheap.'
-      ],
-      reviewerImage: '../../../assets/images/productsdetails/customer.png'
-    },
-    {
-      id: 1,
-      reviewerName: 'Rukku Sumayya',
-      reviewDate: '19th Jan',
-      rating: 4.2,
-      title: 'Great value for money',
-      content: [
-        'I recently purchased the Samsung Galaxy M05 for just under INR 6500, and I must say, I am very impressed! For the price, this phone is an absolute steal and offers incredible value for money.',
-        'The large display is a real highlight, providing a great viewing experience for day-to-day tasks. Despite being a budget phone, it has a premium feel in hand, which is a pleasant surprise. The build quality is solid, and it doesn\'t feel cheap.'
-      ],
-      reviewerImage: '../../../assets/images/productsdetails/customer.png'
-    },
-    // Add more reviews as needed
-  ];
+
   otherproduct: any[] = [
     {
       logo: '../../../assets/images/productsdetails/samsung.png',
@@ -189,14 +168,16 @@ export class ProductdetailsComponent implements OnInit {
       title: 'Charge fast, Stay up to date',
       description: 'Samsung USB Type C Home Travel Adapter & Power bank',
       price: 38.9,
+      link:'/productdetails/123'
     }
   ]
-  constructor(private route: ActivatedRoute, private api: ApiService, private cartService: CartService, private snackBar: MatSnackBar) { }
+  constructor(private route: ActivatedRoute, private api: ApiService, private cartService: CartService, private snackBar: MatSnackBar, private authService: AuthService, private router: Router, private dialog: MatDialog) { }
 
   openCart() {
     this.cartService.showCart();
   }
   ngOnInit(): void {
+    this.userData = this.authService.getUserData();
     this.route.params.subscribe(params => {
       this.productId = params['productId'];
       this.api.getProductDetails(this.productId).subscribe((res) => {
@@ -207,6 +188,8 @@ export class ProductdetailsComponent implements OnInit {
         this.productDetails = this.productPage[0].productDetails;
         this.technicalDetails = this.productPage[0].technicalDetails;
         this.currentImage = this.productPage[0]?.productimages[0]?.image1;
+        this.otherproduct = this.productPage[0].otherproduct;
+
       });
       this.deliveryMessage = this.product[0].deliveryMessage;
     });
@@ -230,10 +213,72 @@ export class ProductdetailsComponent implements OnInit {
     this.showTechnicalDetails = !this.showTechnicalDetails;
   }
 
-  writeReview() {
-    // Implement write review functionality
-    console.log('Write review clicked');
+  openReviewModal() {
+    const userData = this.authService.getUserData();
+    if (!userData) {
+      this.router.navigate(['/signin']);
+    } else {
+      const dialogRef = this.dialog.open(ReviewModalComponent, {
+        width: '800px',
+        panelClass: 'review-modal-container'
+      });
+
+      dialogRef.componentInstance.submit.subscribe((reviewData) => {
+        this.writeReview({
+          product_id: this.productDetails[0]?.productid,
+          user_id: userData.uid,
+          rating: reviewData.rating.toString(),
+          title: reviewData.title,
+          review: reviewData.review,
+        });
+        console.log('review submitted' + ' ' + this.productDetails[0]?.productid + ' ' + userData.uid + ' ' + reviewData.rating.toString() + ' ' + reviewData.title + ' ' + reviewData.review) ;
+
+        dialogRef.close();
+      });
+
+      dialogRef.componentInstance.close.subscribe(() => {
+        dialogRef.close();
+      });
+    }
   }
+
+  writeReview(data: any) {
+    this.api.writeReview(data).subscribe({
+      next: (res) => {
+        console.log('review submitted'+res);
+        this.snackBar.open('Review submitted successfully!', 'Close', {
+          duration: 3000,
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+          panelClass: ['snackbar-success']
+        });
+        // Refresh the product details to show the new review
+        this.loadProductDetails();
+      },
+      error: (err) => {
+        this.snackBar.open('Failed to submit review. Please try again.', 'Close', {
+          duration: 3000,
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+          panelClass: ['snackbar-error']
+        });
+      }
+    });
+  }
+
+  private loadProductDetails() {
+    this.api.getProductDetails(this.productId).subscribe((res) => {
+      this.productPage = res?.productPage || {};
+      this.categoryData = this.productPage[0].categoryData;
+      this.product = this.productPage.product;
+      this.productCarousel = this.productPage[0].productcarousel;
+      this.productDetails = this.productPage[0].productDetails;
+      this.technicalDetails = this.productPage[0].technicalDetails;
+      this.currentImage = this.productPage[0]?.productimages[0]?.image1;
+      this.otherproduct = this.productPage[0].otherproduct;
+    });
+  }
+
   addToCart() {
     const product = {
       id: this.productDetails[0]?.productid,
@@ -247,6 +292,7 @@ export class ProductdetailsComponent implements OnInit {
       sale: this.productDetails[0]?.sale,
       expressDelivery: this.productDetails[0]?.expressDelivery,
       standardDelivery: this.productDetails[0]?.standardDelivery
+
     };
     
     this.cartService.addToCart(product);

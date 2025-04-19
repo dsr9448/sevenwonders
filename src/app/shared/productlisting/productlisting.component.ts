@@ -6,6 +6,7 @@ import { IMAGE_PATHS } from '../constants/api-paths';
 import { CartService } from '../../services/cartservices';
 import { ApiService } from '../../services/api.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-productlisting',
   standalone: true,
@@ -17,10 +18,10 @@ export class ProductlistingComponent implements OnInit {
   @Input() productdata: any;
   bannerimage: any[] = [];
   productlist: any[] = [];
-  imagePath = IMAGE_PATHS.productcaro;
+  imagePath = IMAGE_PATHS.shopbycat;
 
   // Filters
-  priceRange = 1000;
+  priceRange = 1000000;
   selectedBrands: string[] = [];
   selectedRatings: string[] = [];
   inStockOnly = false;
@@ -71,7 +72,7 @@ export class ProductlistingComponent implements OnInit {
       this.selectedRatings = this.selectedRatings.filter(r => r !== range);
     }
   }
-  constructor(private cartService: CartService, private apiService: ApiService, private snackBar: MatSnackBar) { }
+  constructor(private cartService: CartService, private apiService: ApiService, private snackBar: MatSnackBar, private router: Router) { }
 
   ngOnInit(): void {
     this.productdata = this.productdata;
@@ -84,6 +85,10 @@ export class ProductlistingComponent implements OnInit {
     this.cartService.addToCart(product);
     this.cartService.showCart();
   }
+navigateToProduct(product: any) {
+  this.router.navigate(['/product/', product.slug]);
+}
+
 
   toggleWishlist(product: any): void {
     this.apiService.addToWishlist(product.id).subscribe((data) => {

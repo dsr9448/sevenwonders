@@ -15,4 +15,5 @@ export const IMAGE_PATHS = {
   slider: `${BASE_URL}/upload/slider/`,
   breadcrumbs: `${BASE_URL}/upload/sliders/`,
   featured: `${BASE_URL}/upload/product/featured/`,
+  sales: `${BASE_URL}/upload/sale/`,
 };

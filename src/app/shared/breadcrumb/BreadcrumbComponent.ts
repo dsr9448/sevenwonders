@@ -2,9 +2,10 @@ import { Component,OnInit,Input } from '@angular/core';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { NgIf,NgFor } from '@angular/common';
 import { IMAGE_PATHS } from '../constants/api-paths';
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-breadcrumb',
-  imports: [NgIf,NgFor,CarouselModule],
+  imports: [NgIf,NgFor,CarouselModule,RouterModule],
   templateUrl: './breadcrumb.component.html',
   styleUrl: './breadcrumb.component.css'
 })

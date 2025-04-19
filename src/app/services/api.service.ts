@@ -77,4 +77,10 @@ export class ApiService {
       "review": data.review 
     });
   }
+  getSalesData(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/sales`);
+  }
+  getSalesDetails(slug: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/sale/${slug}`);
+  }
 }

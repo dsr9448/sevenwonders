@@ -1,4 +1,4 @@
-<app-breadcrumb category="Category" bannerimage="banner.png" subcategory="{{subcategoryData.name}}" [items]="subcategoryData.sliders "></app-breadcrumb>
+<app-breadcrumb category="{{subcategoryData.categname}}" bannerimage="banner.png" subcategory="{{subcategoryData.name}}" [items]="subcategoryData.sliders "></app-breadcrumb>
 <app-category [categoryData]="subcategoryData.categoryData" [isSubCategory]="true" slug="subcategory"></app-category>
 
 <div class="custom-container newhead d-block d-md-none">
@@ -6,4 +6,3 @@
 </div>
 
 <app-productlisting [productdata]="subcategoryData.productdata" ></app-productlisting>
-<p>{{subcategoryData.products | json}}</p>

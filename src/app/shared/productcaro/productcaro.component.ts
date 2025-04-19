@@ -8,6 +8,7 @@ import { CartService } from '../../services/cartservices';
 import { IMAGE_PATHS } from '../constants/api-paths'; 
 import { ApiService } from '../../services/api.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-productcaro',
   standalone: true,
@@ -54,7 +55,7 @@ export class ProductcaroComponent implements OnInit {
 
   @Input() products: any[] = [];
 
-  constructor(private cartService: CartService, private apiService: ApiService, private snackBar: MatSnackBar) { }
+  constructor(private cartService: CartService, private apiService: ApiService, private snackBar: MatSnackBar, private router: Router) { }
 
   openCart() {
     this.cartService.showCart();
@@ -72,7 +73,9 @@ export class ProductcaroComponent implements OnInit {
     this.cartService.addToCart(product);
     this.cartService.showCart();
   }
-
+  navigateToProduct(product: any) {
+    this.router.navigate(['/product/', product.slug]);
+  }
   toggleWishlist(product: any): void {
     this.apiService.addToWishlist(product.id).subscribe((data) => {
       console.log(data);

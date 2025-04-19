@@ -57,9 +57,9 @@
                                     </div>
 
                                 </div>
-                                <div class="action-buttons {{product.quantity == 0 ? 'outofstock' : ''}}">
+                                <div class="action-buttons {{(product.quantity == 0 || product.quantity == null) ? 'outofstock' : ''}}">
                                     <button type="button" class="add-to-cart"
-                                        *ngIf="product.quantity > 0; else outofstock" (click)="addToCart(product)">
+                                        *ngIf="product.quantity > 0; else outofstock" (click)="product.isVariant==1? navigateToProduct(product): addToCart(product)">
                                         <img src="../../../assets/icons/cart.svg" width="16" alt=""> Add to cart
                                     </button>
                                     <ng-template #outofstock>
@@ -76,9 +76,9 @@
                                 <!-- Action Buttons -->
 
                                 <div
-                                    class="md-action-button {{product.quantity == 0 ? 'outofstock' : ''}}  d-flex d-md-none">
+                                    class="md-action-button {{(product.quantity == 0  || product.quantity == null )? 'outofstock' : ''}}  d-flex d-md-none">
                                     <button class="add-to-cart" *ngIf="product.quantity > 0; else outofstock"
-                                        (click)="addToCart(product)">
+                                        (click)="product.isVariant==1? navigateToProduct(product): addToCart(product)">
                                         <img src="../../../assets/icons/cart.svg" width="20" class="mx-auto" alt="">
                                     </button>
 

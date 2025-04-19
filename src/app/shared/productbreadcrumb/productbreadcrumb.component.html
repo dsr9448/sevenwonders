@@ -6,7 +6,7 @@
             routerLink="/category/{{category.toLowerCase()}}">{{category}} <i *ngIf="subcategory !== ''"
                 class="fa-solid fa-chevron-right"></i></a>
         <a class="ps-0 text-decoration-none" *ngIf="subcategory !== ''"
-            routerLink="/subcategory/{{subcategory.toLowerCase()}}">{{subcategory}} <i *ngIf="productName !== ''"
+            routerLink="{{slug !== '' ? slug : '/subcategory/' + subcategory.toLowerCase()}}">{{subcategory}} <i *ngIf="productName !== ''"
                 class="fa-solid fa-chevron-right"></i></a>
         <a class="ps-0 text-decoration-none active">{{productName }}</a>
     </div>

@@ -1,17 +1,22 @@
 <div class="home-caro ">
-  <owl-carousel-o [options]="carouselOptions">
+  <owl-carousel-o [options]="carouselOptions" *ngIf="items.length > 0 else noData">
     <ng-container *ngFor="let item of items">
       <ng-template carouselSlide>
         <img [src]="item.image!=null ? imagePath+item.image : 'https://placehold.co/1920x400'" alt="Carousel Image">
       </ng-template>
     </ng-container>
   </owl-carousel-o>
+  <ng-template #noData>
+    <div class="no-data text-center">
+      <p>No data found</p>
+    </div>
+  </ng-template>
   <div class="custom-container breadcrumb-container mx-auto">
 
     <div class="breadcrumb-content d-none d-md-flex">
       <a class="ps-0 text-decoration-none" href="/">Home <i class="fa-solid fa-chevron-right"></i></a>
-      <a class="ps-0 text-decoration-none {{subcategory== '' ? 'active' : ''}}" routerLink="/">{{category}} <i
+      <a class="ps-0 text-decoration-none {{subcategory== '' ? 'active' : ''}}" [routerLink]="['/category', category]">{{category}} <i
           *ngIf="subcategory !== ''" class="fa-solid fa-chevron-right"></i></a>
-      <a *ngIf="subcategory !== ''" class="ps-0 text-decoration-none active" routerLink="/">{{subcategory}}</a>
+      <a *ngIf="subcategory !== ''" class="ps-0 text-decoration-none active" [routerLink]="['/subcategory', subcategory]">{{subcategory}}</a>
     </div>
   </div>

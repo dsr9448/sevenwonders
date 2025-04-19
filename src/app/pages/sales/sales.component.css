@@ -1,0 +1,19 @@
+.sale-banner{
+    margin-bottom: 24px;
+}
+.sale-banner img{
+    border-radius: 10px;
+    width: 100%;
+    /* min-height: 400px;
+    max-height: 400px; */
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+.sale-banner img:hover{
+    transform: scale(1.05);
+}
+@media (max-width: 768px) {
+    .sale-banner {
+        margin-bottom: 14px;
+    }
+}

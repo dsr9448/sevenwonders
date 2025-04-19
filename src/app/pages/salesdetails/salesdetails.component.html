@@ -1,0 +1,5 @@
+<app-productbreadcrumb [subcategory]="'sales'" [slug]="'/sales'" [productName]="salesDetails.sale.name" ></app-productbreadcrumb>
+<div class="custom-container trending-deals-container">
+    <img [src]="image+salesDetails.sale.bannerimage || 'https://placehold.co/1920x400'" class="img-fluid rounded-3" alt="">
+</div>
+<app-productlisting  [productdata]="salesDetails.productsdata" ></app-productlisting>

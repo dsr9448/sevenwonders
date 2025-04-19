@@ -123,7 +123,9 @@
 
 .product-image img {
   max-width: 100%;
-  height: auto;
+  min-height: 290px;
+  max-height: 290px;
+  object-fit: contain;
 }
 
 .brand {
@@ -447,6 +449,10 @@
   .product-list{
     grid-template-columns: repeat(2, 1fr);
     gap: 12px; 
+}
+.product-image img {
+  min-height: 150px;
+  max-height: 150px;
 }
 }
 

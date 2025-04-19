@@ -11,6 +11,7 @@ export class ProductbreadcrumbComponent {
   @Input() category: string = '';
   @Input() subcategory: string = '';
   @Input() productName: string = '';
+  @Input() slug: string = '';
   constructor() { }
 
   ngOnInit(): void {

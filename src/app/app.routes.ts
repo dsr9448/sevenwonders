@@ -12,6 +12,8 @@ import { SigninComponent } from './pages/signin/signin.component';
 import { WishlistComponent } from './pages/wishlist/wishlist.component';
 import { ForgetpasswordComponent } from './pages/forgetpassword/forgetpassword.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { SalesComponent } from './pages/sales/sales.component';
+import { SalesdetailsComponent } from './pages/salesdetails/salesdetails.component';
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'preloader', component: PreloaderComponent },
@@ -25,6 +27,8 @@ export const routes: Routes = [
   {path:'forgetpassword', component: ForgetpasswordComponent},
   {path:'wishlist', component: WishlistComponent},
   {path:'dashboard', component: DashboardComponent},
+  {path:'sales', component: SalesComponent},
+  {path:'sale/:slug', component: SalesdetailsComponent},
   { path: '**', component: PagenotfoundComponent }
 ];
 

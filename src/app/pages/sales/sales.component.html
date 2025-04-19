@@ -1,0 +1,15 @@
+<app-productbreadcrumb  [productName]="'Sales'" ></app-productbreadcrumb>
+<div class="custom-container trending-deals-container">
+    <ng-container *ngIf="salesData.length > 0">
+        <div class="row">
+           <ng-container *ngFor="let sale of salesData">
+            <div class="col-md-6 sale-banner">
+                <a [routerLink]="['/sale', sale.slug]">
+                    <img [src]="sale.bannerimage!=null ? imagePath + sale.bannerimage : 'https://placehold.co/800x200'" class="img-fluid" alt="">
+                    <!-- <h3>{{sale.name}}</h3> -->
+                </a>
+            </div>
+           </ng-container>
+        </div>
+    </ng-container>
+</div>
